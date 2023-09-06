@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MRSUMobile.App">
+	<!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+	<Application.Resources>
+		<ResourceDictionary>
+			<Color x:Key="Primary">White</Color>
+			<Color x:Key="Primary_Dark">#187EB1</Color>
+			<Color x:Key="Primary_Light">#2196F3</Color>
+
+			<Color x:Key="Background_Dark">#121212</Color>
+			<Color x:Key="Background_Light">#f6f7f9</Color>
+
+			<Color x:Key="Foreground_Dark">#6e6e6e</Color>
+			<Color x:Key="Foreground_Light">#9d9d9d</Color>
+
+			<Color x:Key="Title_Dark">#ffffff</Color>
+			<Color x:Key="Title_Light">#0f0f0f</Color>
+
+			<Color x:Key="Text_Dark">#cccccc</Color>
+			<Color x:Key="Text_Light">#626262</Color>
+
+			<Color x:Key="Disabled_Dark">#b2ffffff</Color>
+			<Color x:Key="Disabled_Light">#a86d6d6d</Color>
+
+			<Style TargetType="Button">
+				<Setter Property="TextColor" Value="White"></Setter>
+				<Setter Property="VisualStateManager.VisualStateGroups">
+					<VisualStateGroupList>
+						<VisualStateGroup x:Name="CommonStates">
+							<VisualState x:Name="Normal">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Primary_Dark}, Light={StaticResource Primary_Light}}" />
+								</VisualState.Setters>
+							</VisualState>
+							<VisualState x:Name="Disabled">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="#332196F3" />
+								</VisualState.Setters>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateGroupList>
+				</Setter>
+			</Style>
+			<Style TargetType="Entry">
+				<Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Text_Dark}, Light={StaticResource Text_Light}}"/>
+				<Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource Text_Dark}, Light={StaticResource Text_Light}}"/>
+			</Style>
+			<Style TargetType="Label">
+				<Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Title_Dark}, Light={StaticResource Title_Light}}"/>
+			</Style>
+			<Style TargetType="ContentPage">
+				<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}"/>
+			</Style>
+			<Style x:Key="LogoMrsu" TargetType="Image">
+				<Setter Property="Source" Value="{AppThemeBinding Dark=mrsu_logo_dark.png, Light=mrsu_logo_light.png}"/>
+			</Style>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>
