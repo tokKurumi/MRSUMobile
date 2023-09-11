@@ -6,16 +6,10 @@
 	x:Class="MRSUMobile.AppShell"
 	FlyoutBackgroundColor="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}">
 
-	<!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
-
 	<Shell.Resources>
 		<ResourceDictionary>
 			<Style x:Key="BaseStyle" TargetType="Element">
-				<Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}"/>
+				<Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Foreground_Dark}, Light={StaticResource Foreground_Light}}"/>
 				<Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark={StaticResource Text_Dark}, Light={StaticResource Text_Light}}"/>
 				<Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark={StaticResource Title_Dark}, Light={StaticResource Title_Light}}"/>
 				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF"/>
@@ -27,11 +21,6 @@
 			</Style>
 			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
 			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
-
-			<!--
-            Default Styles for all Flyout Items
-            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
-            -->
 			<Style Class="FlyoutItemLabelStyle" TargetType="Label">
 				<Setter Property="TextColor" Value="White"></Setter>
 			</Style>
@@ -54,10 +43,6 @@
 					</VisualStateGroupList>
 				</Setter>
 			</Style>
-
-			<!--
-            Custom Style you can apply to any Flyout Item
-            -->
 			<Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
 				<Setter Property="VisualStateManager.VisualStateGroups">
 					<VisualStateGroupList>
@@ -74,31 +59,24 @@
 		</ResourceDictionary>
 	</Shell.Resources>
 
-	<!-- 
-        When the Flyout is visible this defines the content to display in the flyout.
-        FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
-        https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
-    -->
-	<FlyoutItem Title="About" Icon="icon_about.png">
-		<ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-	</FlyoutItem>
-	<FlyoutItem Title="Browse" Icon="icon_feed.png">
-		<ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+	<!-- Loading/Start Page -->
+	<ShellItem Route="LoadingPage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate local:LoadingPage}"/>
+	</ShellItem>
+	<ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
+	</ShellItem>
+
+	<FlyoutItem Title="Profile">
+		<ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
 	</FlyoutItem>
 
-	<!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-	<MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
-	</MenuItem>
-
-	<!--
-        TabBar lets you define content that won't show up in a flyout menu. When this content is active
-        the flyout menu won't be available. This is useful for creating areas of the application where 
-        you don't want users to be able to navigate away from. If you would like to navigate to this 
-        content you can do so by calling 
-        await Shell.Current.GoToAsync("//LoginPage");
-    -->
 	<TabBar>
 		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
 	</TabBar>
+
+	<Shell.FlyoutFooter>
+		<Button Text="Logout" StyleClass="MenuItemLayoutStyle" BackgroundColor="#bbd55a00" Clicked="Button_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+	</Shell.FlyoutFooter>
 
 </Shell>

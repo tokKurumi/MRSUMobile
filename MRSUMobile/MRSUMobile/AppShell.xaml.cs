@@ -1,8 +1,4 @@
-﻿using MRSUMobile.ViewModels;
-using MRSUMobile.Views;
-using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MRSUMobile
 {
@@ -11,11 +7,9 @@ namespace MRSUMobile
 		public AppShell()
 		{
 			InitializeComponent();
-			Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-			Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
 		}
 
-		private async void OnMenuItemClicked(object sender, EventArgs e)
+		private async void Button_Clicked(object sender, System.EventArgs e)
 		{
 			await Shell.Current.GoToAsync("//LoginPage");
 		}

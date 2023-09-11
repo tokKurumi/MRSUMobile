@@ -5,12 +5,12 @@ using Xamarin.Forms.Xaml;
 namespace MRSUMobile.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class ProfilePage : ContentPage
 	{
-		public LoginPage()
+		public ProfilePage()
 		{
 			InitializeComponent();
-			this.BindingContext = new LoginViewModel();
+			this.BindingContext = new ProfileViewModel();
 		}
 	}
 }

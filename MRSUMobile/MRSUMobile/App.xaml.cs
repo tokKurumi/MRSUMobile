@@ -1,8 +1,4 @@
-﻿using MRSUMobile.Services;
-using MRSUMobile.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace MRSUMobile
 {
@@ -13,7 +9,6 @@ namespace MRSUMobile
 		{
 			InitializeComponent();
 
-			DependencyService.Register<MockDataStore>();
 			MainPage = new AppShell();
 		}
 
