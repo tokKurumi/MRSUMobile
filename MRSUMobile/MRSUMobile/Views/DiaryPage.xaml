@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:viewmodels="clr-namespace:MRSUMobile.ViewModels"
+	xmlns:calendar="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+	x:Class="MRSUMobile.Views.DiaryPage"
+	BackgroundColor="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}">
+
+	<ContentPage.BindingContext>
+		<viewmodels:DiaryViewModel/>
+	</ContentPage.BindingContext>
+
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout>
+				<calendar:Calendar CalendarLayout="Week"
+					Culture="{Binding Culture}"
+					DayTappedCommand="{Binding DayTappedCommand}"
+					DayViewCornerRadius="5"
+					DayViewSize="40"
+					DaysTitleColor="{AppThemeBinding Dark={StaticResource Text_Dark}, Light={StaticResource Text_Light}}"
+					DaysTitleHeight="20"
+					FooterArrowVisible="False"
+					FooterSectionVisible="False"
+					ArrowsColor="{AppThemeBinding Dark={StaticResource Primary_Dark}, Light={StaticResource Primary_Light}}"
+					BackgroundColor="{AppThemeBinding Dark={StaticResource SubBackground_Dark}, Light={StaticResource SubBackground_Light}}"/>
+
+				<TableView Margin="10">
+					<TableRoot>
+						<TableSection Title="Расписание">
+							<ViewCell>
+								<Label Text="123"/>
+							</ViewCell>
+						</TableSection>
+					</TableRoot>
+				</TableView>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

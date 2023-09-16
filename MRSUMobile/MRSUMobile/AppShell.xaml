@@ -68,11 +68,14 @@
 	</ShellItem>
 
 	<FlyoutItem Title="Profile">
-		<ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
+		<ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}"/>
+	</FlyoutItem>
+	<FlyoutItem Title="Diary">
+		<ShellContent Route="DiaryPage" ContentTemplate="{DataTemplate local:DiaryPage}"/>
 	</FlyoutItem>
 
 	<TabBar>
-		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}"/>
 	</TabBar>
 
 	<Shell.FlyoutFooter>

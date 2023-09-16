@@ -33,12 +33,12 @@
 					HeightRequest="60"
 					WidthRequest="90"
 					BackgroundColor="{AppThemeBinding Dark={StaticResource SubBackground_Dark}, Light={StaticResource SubBackground_Light}}"
-					Margin="10, -50, 10, 10"
+					Margin="10, -50, 10, 0"
 					CornerRadius="10"
-					Padding="0">
+					Padding="5">
 
 					<Frame.Content>
-						<Grid RowDefinitions="*, *" Padding="5">
+						<Grid RowDefinitions="*, *">
 							<Label Grid.Row="0" Text="{Binding ProfileUserName}" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
 							<Label Grid.Row="1" Text="{Binding ProfileUserLogin}" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Dark={StaticResource Text_Dark}, Light={StaticResource Text_Light}}"/>
 						</Grid>
@@ -53,8 +53,8 @@
 					CornerRadius="10">
 
 					<Frame.Content>
-						<ScrollView Padding="5">
-							<Label Text="Something from papi.mrsu.ru" HeightRequest="1000"/>
+						<ScrollView Padding="10">
+							<Label Text="Something from papi.mrsu.ru" HeightRequest="1000" HorizontalOptions="CenterAndExpand"/>
 						</ScrollView>
 					</Frame.Content>
 				</Frame>

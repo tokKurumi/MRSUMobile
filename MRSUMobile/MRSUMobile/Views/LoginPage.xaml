@@ -20,6 +20,7 @@
 			<Entry x:Name="UserNameEntry" Placeholder="Логин" Margin="10"/>
 			<Entry IsPassword="True" x:Name="PasswordEntry" Placeholder="Пароль" Margin="10"/>
 			<Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" Margin="10"/>
+			<Button Text="Забыли пароль?" Clicked="Button_Clicked" Margin="10"/>
 		</StackLayout>
 
 	</ContentPage.Content>
