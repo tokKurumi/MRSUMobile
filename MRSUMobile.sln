@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRSUMobile.Android", "MRSUMobile\MRSUMobile.Android\MRSUMobile.Android.csproj", "{D8881EE3-1500-4D10-8176-BA63C5C27716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRSUMobile", "MRSUMobile\MRSUMobile\MRSUMobile.csproj", "{83FE77E1-8EE6-4808-832E-F14CC7F0D97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRSUMobile", "MRSUMobile\MRSUMobile\MRSUMobile.csproj", "{83FE77E1-8EE6-4808-832E-F14CC7F0D97B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

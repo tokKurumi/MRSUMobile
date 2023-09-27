@@ -1,4 +1,5 @@
-﻿using MRSUMobile.Views;
+﻿using MRSUMobile.Services;
+using MRSUMobile.Views;
 using Xamarin.Forms;
 
 namespace MRSUMobile.ViewModels
@@ -14,7 +15,14 @@ namespace MRSUMobile.ViewModels
 
 		private async void CheckLoginStatus(object obj)
 		{
-			await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+			if (DependencyService.Get<IMrsuApiService>().IsAutorized())
+			{
+				await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+			}
+			else
+			{
+				await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+			}
 		}
 	}
 }

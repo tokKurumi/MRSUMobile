@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using MRSUMobile.Services;
+using Xamarin.Forms;
 
 namespace MRSUMobile
 {
@@ -8,6 +9,9 @@ namespace MRSUMobile
 		public App()
 		{
 			InitializeComponent();
+
+			DependencyService.Register<IMrsuApiService, MrsuApiService>();
+			DependencyService.Register<IControlsManager, ControlsManager>();
 
 			MainPage = new AppShell();
 		}

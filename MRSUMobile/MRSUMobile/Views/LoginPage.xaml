@@ -17,10 +17,10 @@
 
 		<StackLayout Padding="10" VerticalOptions="CenterAndExpand">
 			<Image Style="{StaticResource LogoMrsu}"/>
-			<Entry x:Name="UserNameEntry" Placeholder="Логин" Margin="10"/>
-			<Entry IsPassword="True" x:Name="PasswordEntry" Placeholder="Пароль" Margin="10"/>
+			<Entry Text="{Binding Login}" Placeholder="Логин" Margin="10"/>
+			<Entry Text="{Binding Password}" IsPassword="True" Placeholder="Пароль" Margin="10"/>
 			<Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" Margin="10"/>
-			<Button Text="Забыли пароль?" Clicked="Button_Clicked" Margin="10"/>
+			<Button Text="Забыли пароль?" Command="{Binding RestorePasswordCommand}" Margin="10"/>
 		</StackLayout>
 
 	</ContentPage.Content>

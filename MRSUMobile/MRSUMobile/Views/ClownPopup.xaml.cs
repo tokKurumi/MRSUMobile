@@ -1,5 +1,4 @@
-﻿using MRSUMobile.ViewModels;
-using Xamarin.CommunityToolkit.UI.Views;
+﻿using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms.Xaml;
 
 namespace MRSUMobile.Views
