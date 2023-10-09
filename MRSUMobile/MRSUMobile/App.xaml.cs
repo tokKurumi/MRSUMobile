@@ -1,4 +1,5 @@
-﻿using MRSUMobile.Services;
+﻿using MonkeyCache.FileStore;
+using MRSUMobile.Services;
 using Xamarin.Forms;
 
 namespace MRSUMobile
@@ -9,6 +10,8 @@ namespace MRSUMobile
 		public App()
 		{
 			InitializeComponent();
+
+			Barrel.ApplicationId = "MRSUMobile";
 
 			DependencyService.Register<IMrsuApiService, MrsuApiService>();
 			DependencyService.Register<IControlsManager, ControlsManager>();

@@ -3,13 +3,6 @@ using System;
 
 namespace MRSUMobile.Models.User
 {
-	public class Photo
-	{
-		public string UrlSmall { get; set; }
-		public string UrlMedium { get; set; }
-		public string UrlSource { get; set; }
-	}
-
 	public class Role
 	{
 		public string Name { get; set; }

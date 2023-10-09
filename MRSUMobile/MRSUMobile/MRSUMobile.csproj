@@ -8,7 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
-    <PackageReference Include="Vapolia.Xamarin.Svg.Forms" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
+    <PackageReference Include="MonkeyCache" Version="1.6.3" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.6.3" />
+    <PackageReference Include="System.Text.Json" Version="7.0.3" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />  
@@ -16,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Themes\" />
   </ItemGroup>
 

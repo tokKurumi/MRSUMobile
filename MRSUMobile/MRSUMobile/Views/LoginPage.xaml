@@ -19,7 +19,7 @@
 			<Image Style="{StaticResource LogoMrsu}"/>
 			<Entry Text="{Binding Login}" Placeholder="Логин" Margin="10"/>
 			<Entry Text="{Binding Password}" IsPassword="True" Placeholder="Пароль" Margin="10"/>
-			<Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" Margin="10"/>
+			<Button VerticalOptions="Center" Text="Войти" Command="{Binding LoginCommand}" Margin="10"/>
 			<Button Text="Забыли пароль?" Command="{Binding RestorePasswordCommand}" Margin="10"/>
 		</StackLayout>
 

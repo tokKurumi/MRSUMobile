@@ -3,6 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="MRSUMobile.Views.ProfilePage"
 	xmlns:viewmodels="clr-namespace:MRSUMobile.ViewModels"
+	xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
 	BackgroundColor="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}">
 
 	<ContentPage.BindingContext>
@@ -14,21 +15,13 @@
 
 			<Grid RowDefinitions="Auto, Auto, Auto, *" VerticalOptions="FillAndExpand">
 				<Frame Grid.Row="0" HeightRequest="225" BackgroundColor="{AppThemeBinding Dark={StaticResource Background_Dark}, Light={StaticResource Background_Light}}"/>
-				<Frame Grid.Row="1"
-					HeightRequest="200"
-					WidthRequest="200"
+				<xct:AvatarView Source="{Binding ProfileImagePath}"
+					Size="200"
+					Grid.Row="1"
 					Margin="10, -300, 10, 10"
-					CornerRadius="200"
-					BorderColor="{AppThemeBinding Dark={StaticResource Primary_Dark}, Light={StaticResource Primary_Light}}"
 					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					IsClippedToBounds="True"
-					Padding="0">
-
-					<Frame.Content>
-						<Image Source="{Binding ProfileImagePath}" Aspect="AspectFit"/>
-					</Frame.Content>
-				</Frame>
+					VerticalOptions="Center"/>
+				
 				<Frame Grid.Row="2"
 					HeightRequest="60"
 					WidthRequest="90"
@@ -54,7 +47,7 @@
 
 					<Frame.Content>
 						<ScrollView Padding="10">
-							<Label Text="Something from papi.mrsu.ru" HeightRequest="1000" HorizontalOptions="CenterAndExpand"/>
+							
 						</ScrollView>
 					</Frame.Content>
 				</Frame>
