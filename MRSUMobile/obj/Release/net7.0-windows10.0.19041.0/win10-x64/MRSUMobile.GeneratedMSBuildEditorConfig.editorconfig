@@ -1,0 +1,59 @@
+is_global = true
+build_property.TargetFramework = net7.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MRSUMobile
+build_property.ProjectDir = E:\Projects\MRSUMobile .MAUI\MRSUMobile\MRSUMobile\
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/MVVM/View/LoginView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.MVVM.View.LoginView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\LoginView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\LoginView.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/MVVM/View/ProfileView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.MVVM.View.ProfileView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\ProfileView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\ProfileView.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/MVVM/View/TimeTableView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.MVVM.View.TimeTableView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\TimeTableView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\TimeTableView.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/Resources/Styles/DarkTheme.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.Resources.Styles.DarkTheme.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\DarkTheme.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\DarkTheme.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/Resources/Styles/LightTheme.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.Resources.Styles.LightTheme.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\LightTheme.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\LightTheme.xaml
+
+[E:/Projects/MRSUMobile .MAUI/MRSUMobile/MRSUMobile/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MRSUMobile.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml

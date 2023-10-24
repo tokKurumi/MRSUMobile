@@ -1,0 +1,578 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MRSUMobile</name>
+    </assembly>
+    <members>
+        <member name="T:MRSUMobile.MVVM.ViewModel.AppShellViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.AppShellViewModel.User">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.AppShellViewModel.user"/>
+        </member>
+        <member name="F:MRSUMobile.MVVM.ViewModel.AppShellViewModel.logoutCommand">
+            <summary>The backing field for <see cref="P:MRSUMobile.MVVM.ViewModel.AppShellViewModel.LogoutCommand"/>.</summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.AppShellViewModel.LogoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MRSUMobile.MVVM.ViewModel.AppShellViewModel.Logout"/>.</summary>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.Login">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.login"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.LoginPlaceholder">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.loginPlaceholder"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.Password">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.password"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.PasswordPlaceholder">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.passwordPlaceholder"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInPlaceholder">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.signInPlaceholder"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInOfflinePlaceholder">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.signInOfflinePlaceholder"/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.RefreshPasswordPlaceholder">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.refreshPasswordPlaceholder"/>
+        </member>
+        <member name="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.signInCommand">
+            <summary>The backing field for <see cref="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInCommand"/>.</summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignIn"/>.</summary>
+        </member>
+        <member name="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.signInOfflineCommand">
+            <summary>The backing field for <see cref="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInOfflineCommand"/>.</summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInOfflineCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:MRSUMobile.MVVM.ViewModel.LoginViewModel.SignInOffline"/>.</summary>
+        </member>
+        <member name="F:MRSUMobile.MVVM.ViewModel.LoginViewModel.restorePasswordCommand">
+            <summary>The backing field for <see cref="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.RestorePasswordCommand"/>.</summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.LoginViewModel.RestorePasswordCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:MRSUMobile.MVVM.ViewModel.LoginViewModel.RestorePassword"/>.</summary>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.ProfileViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.ProfileViewModel.User">
+            <inheritdoc cref="F:MRSUMobile.MVVM.ViewModel.ProfileViewModel.user"/>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged">
+            <inheritdoc cref = "E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+        </member>
+        <member name="E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging">
+            <inheritdoc cref = "E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            </summary>
+            <param name = "e">The input <see cref = "T:System.ComponentModel.PropertyChangedEventArgs"/> instance.</param>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.OnPropertyChanging(System.ComponentModel.PropertyChangingEventArgs)">
+            <summary>
+            Raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event.
+            </summary>
+            <param name = "e">The input <see cref = "T:System.ComponentModel.PropertyChangingEventArgs"/> instance.</param>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            </summary>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.OnPropertyChanging(System.String)">
+            <summary>
+            Raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event.
+            </summary>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)">
+            <summary>
+            Compares the current and new values for a given property. If the value has changed,
+            raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property with the new
+            value, then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            </summary>
+            <typeparam name = "T">The type of the property that changed.</typeparam>
+            <param name = "field">The field storing the property's value.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+            <remarks>
+            The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised
+            if the current and new value for the target property are the same.
+            </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.Collections.Generic.IEqualityComparer{``0},System.String)">
+            <summary>
+            Compares the current and new values for a given property. If the value has changed,
+            raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property with the new
+            value, then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            See additional notes about this overload in <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>.
+            </summary>
+            <typeparam name = "T">The type of the property that changed.</typeparam>
+            <param name = "field">The field storing the property's value.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "comparer">The <see cref = "T:System.Collections.Generic.IEqualityComparer`1"/> instance to use to compare the input values.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0,``0,System.Action{``0},System.String)">
+            <summary>
+            Compares the current and new values for a given property. If the value has changed,
+            raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property with the new
+            value, then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            This overload is much less efficient than <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/> and it
+            should only be used when the former is not viable (eg. when the target property being
+            updated does not directly expose a backing field that can be passed by reference).
+            For performance reasons, it is recommended to use a stateful callback if possible through
+            the <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``2(``1,``1,``0,System.Action{``0,``1},System.String)"/> whenever possible
+            instead of this overload, as that will allow the C# compiler to cache the input callback and
+            reduce the memory allocations. More info on that overload are available in the related XML
+            docs. This overload is here for completeness and in cases where that is not applicable.
+            </summary>
+            <typeparam name = "T">The type of the property that changed.</typeparam>
+            <param name = "oldValue">The current property value.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "callback">A callback to invoke to update the property value.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+            <remarks>
+            The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised
+            if the current and new value for the target property are the same.
+            </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0,``0,System.Collections.Generic.IEqualityComparer{``0},System.Action{``0},System.String)">
+            <summary>
+            Compares the current and new values for a given property. If the value has changed,
+            raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property with the new
+            value, then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            See additional notes about this overload in <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0,``0,System.Action{``0},System.String)"/>.
+            </summary>
+            <typeparam name = "T">The type of the property that changed.</typeparam>
+            <param name = "oldValue">The current property value.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "comparer">The <see cref = "T:System.Collections.Generic.IEqualityComparer`1"/> instance to use to compare the input values.</param>
+            <param name = "callback">A callback to invoke to update the property value.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``2(``1,``1,``0,System.Action{``0,``1},System.String)">
+             <summary>
+             Compares the current and new values for a given nested property. If the value has changed,
+             raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property and then raises the
+             <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event. The behavior mirrors that of <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>,
+             with the difference being that this method is used to relay properties from a wrapped model in the
+             current instance. This type is useful when creating wrapping, bindable objects that operate over
+             models that lack support for notification (eg. for CRUD operations).
+             Suppose we have this model (eg. for a database row in a table):
+             <code>
+             public class Person
+             {
+                 public string Name { get; set; }
+             }
+             </code>
+             We can then use a property to wrap instances of this type into our observable model (which supports
+             notifications), injecting the notification to the properties of that model, like so:
+             <code>
+             [ObservableObject]
+             public class BindablePerson
+             {
+                 public Model { get; }
+            
+                 public BindablePerson(Person model)
+                 {
+                     Model = model;
+                 }
+            
+                 public string Name
+                 {
+                     get => Model.Name;
+                     set => Set(Model.Name, value, Model, (model, name) => model.Name = name);
+                 }
+             }
+             </code>
+             This way we can then use the wrapping object in our application, and all those "proxy" properties will
+             also raise notifications when changed. Note that this method is not meant to be a replacement for
+             <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>, and it should only be used when relaying properties to a model that
+             doesn't support notifications, and only if you can't implement notifications to that model directly (eg. by having
+             it inherit from <see cref = "!:ObservableObject"/>). The syntax relies on passing the target model and a stateless callback
+             to allow the C# compiler to cache the function, which results in much better performance and no memory usage.
+             </summary>
+             <typeparam name = "TModel">The type of model whose property (or field) to set.</typeparam>
+             <typeparam name = "T">The type of property (or field) to set.</typeparam>
+             <param name = "oldValue">The current property value.</param>
+             <param name = "newValue">The property's value after the change occurred.</param>
+             <param name = "model">The model containing the property being updated.</param>
+             <param name = "callback">The callback to invoke to set the target property value, if a change has occurred.</param>
+             <param name = "propertyName">(optional) The name of the property that changed.</param>
+             <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+             <remarks>
+             The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not
+             raised if the current and new value for the target property are the same.
+             </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``2(``1,``1,System.Collections.Generic.IEqualityComparer{``1},``0,System.Action{``0,``1},System.String)">
+            <summary>
+            Compares the current and new values for a given nested property. If the value has changed,
+            raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> event, updates the property and then raises the
+            <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event. The behavior mirrors that of <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>,
+            with the difference being that this method is used to relay properties from a wrapped model in the
+            current instance. See additional notes about this overload in <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``2(``1,``1,``0,System.Action{``0,``1},System.String)"/>.
+            </summary>
+            <typeparam name = "TModel">The type of model whose property (or field) to set.</typeparam>
+            <typeparam name = "T">The type of property (or field) to set.</typeparam>
+            <param name = "oldValue">The current property value.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "comparer">The <see cref = "T:System.Collections.Generic.IEqualityComparer`1"/> instance to use to compare the input values.</param>
+            <param name = "model">The model containing the property being updated.</param>
+            <param name = "callback">The callback to invoke to set the target property value, if a change has occurred.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier@,System.Threading.Tasks.Task,System.String)">
+             <summary>
+             Compares the current and new values for a given field (which should be the backing
+             field for a property). If the value has changed, raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/>
+             event, updates the field and then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+             The behavior mirrors that of <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>, with the difference being that
+             this method will also monitor the new value of the property (a generic <see cref = "T:System.Threading.Tasks.Task"/>) and will also
+             raise the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> again for the target property when it completes.
+             This can be used to update bindings observing that <see cref = "T:System.Threading.Tasks.Task"/> or any of its properties.
+             This method and its overload specifically rely on the <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier"/> type, which needs
+             to be used in the backing field for the target <see cref = "T:System.Threading.Tasks.Task"/> property. The field doesn't need to be
+             initialized, as this method will take care of doing that automatically. The <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier"/>
+             type also includes an implicit operator, so it can be assigned to any <see cref = "T:System.Threading.Tasks.Task"/> instance directly.
+             Here is a sample property declaration using this method:
+             <code>
+             private TaskNotifier myTask;
+            
+             public Task MyTask
+             {
+                 get => myTask;
+                 private set => SetAndNotifyOnCompletion(ref myTask, value);
+             }
+             </code>
+             </summary>
+             <param name = "taskNotifier">The field notifier to modify.</param>
+             <param name = "newValue">The property's value after the change occurred.</param>
+             <param name = "propertyName">(optional) The name of the property that changed.</param>
+             <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+             <remarks>
+             The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised if the current
+             and new value for the target property are the same. The return value being <see langword="true"/> only
+             indicates that the new value being assigned to <paramref name = "taskNotifier"/> is different than the previous one,
+             and it does not mean the new <see cref = "T:System.Threading.Tasks.Task"/> instance passed as argument is in any particular state.
+             </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier@,System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task},System.String)">
+            <summary>
+            Compares the current and new values for a given field (which should be the backing
+            field for a property). If the value has changed, raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/>
+            event, updates the field and then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            This method is just like <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier@,System.Threading.Tasks.Task,System.String)"/>,
+            with the difference being an extra <see cref = "T:System.Action`1"/> parameter with a callback being invoked
+            either immediately, if the new task has already completed or is <see langword="null"/>, or upon completion.
+            </summary>
+            <param name = "taskNotifier">The field notifier to modify.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "callback">A callback to invoke to update the property value.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+            <remarks>
+            The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised
+            if the current and new value for the target property are the same.
+            </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion``1(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier{``0}@,System.Threading.Tasks.Task{``0},System.String)">
+             <summary>
+             Compares the current and new values for a given field (which should be the backing
+             field for a property). If the value has changed, raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/>
+             event, updates the field and then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+             The behavior mirrors that of <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetProperty``1(``0@,``0,System.String)"/>, with the difference being that
+             this method will also monitor the new value of the property (a generic <see cref = "T:System.Threading.Tasks.Task"/>) and will also
+             raise the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> again for the target property when it completes.
+             This can be used to update bindings observing that <see cref = "T:System.Threading.Tasks.Task"/> or any of its properties.
+             This method and its overload specifically rely on the <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1"/> type, which needs
+             to be used in the backing field for the target <see cref = "T:System.Threading.Tasks.Task"/> property. The field doesn't need to be
+             initialized, as this method will take care of doing that automatically. The <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1"/>
+             type also includes an implicit operator, so it can be assigned to any <see cref = "T:System.Threading.Tasks.Task"/> instance directly.
+             Here is a sample property declaration using this method:
+             <code>
+             private TaskNotifier&lt;int&gt; myTask;
+            
+             public Task&lt;int&gt; MyTask
+             {
+                 get => myTask;
+                 private set => SetAndNotifyOnCompletion(ref myTask, value);
+             }
+             </code>
+             </summary>
+             <typeparam name = "T">The type of result for the <see cref = "T:System.Threading.Tasks.Task`1"/> to set and monitor.</typeparam>
+             <param name = "taskNotifier">The field notifier to modify.</param>
+             <param name = "newValue">The property's value after the change occurred.</param>
+             <param name = "propertyName">(optional) The name of the property that changed.</param>
+             <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+             <remarks>
+             The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised if the current
+             and new value for the target property are the same. The return value being <see langword="true"/> only
+             indicates that the new value being assigned to <paramref name = "taskNotifier"/> is different than the previous one,
+             and it does not mean the new <see cref = "T:System.Threading.Tasks.Task`1"/> instance passed as argument is in any particular state.
+             </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion``1(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier{``0}@,System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}},System.String)">
+            <summary>
+            Compares the current and new values for a given field (which should be the backing
+            field for a property). If the value has changed, raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/>
+            event, updates the field and then raises the <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> event.
+            This method is just like <see cref = "M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion``1(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier{``0}@,System.Threading.Tasks.Task{``0},System.String)"/>,
+            with the difference being an extra <see cref = "T:System.Action`1"/> parameter with a callback being invoked
+            either immediately, if the new task has already completed or is <see langword="null"/>, or upon completion.
+            </summary>
+            <typeparam name = "T">The type of result for the <see cref = "T:System.Threading.Tasks.Task`1"/> to set and monitor.</typeparam>
+            <param name = "taskNotifier">The field notifier to modify.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "callback">A callback to invoke to update the property value.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+            <remarks>
+            The <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanging"/> and <see cref = "E:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.PropertyChanged"/> events are not raised
+            if the current and new value for the target property are the same.
+            </remarks>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.SetPropertyAndNotifyOnCompletion``1(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.ITaskNotifier{``0},``0,System.Action{``0},System.String)">
+            <summary>
+            Implements the notification logic for the related methods.
+            </summary>
+            <typeparam name = "TTask">The type of <see cref = "T:System.Threading.Tasks.Task"/> to set and monitor.</typeparam>
+            <param name = "taskNotifier">The field notifier.</param>
+            <param name = "newValue">The property's value after the change occurred.</param>
+            <param name = "callback">(optional) A callback to invoke to update the property value.</param>
+            <param name = "propertyName">(optional) The name of the property that changed.</param>
+            <returns><see langword="true"/> if the property was changed, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.ITaskNotifier`1">
+            <summary>
+            An interface for task notifiers of a specified type.
+            </summary>
+            <typeparam name = "TTask">The type of value to store.</typeparam>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.ITaskNotifier`1.Task">
+            <summary>
+            Gets or sets the wrapped <typeparamref name = "TTask"/> value.
+            </summary>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier">
+            <summary>
+            A wrapping class that can hold a <see cref = "T:System.Threading.Tasks.Task"/> value.
+            </summary>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier"/> class.
+            </summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier.MRSUMobile#MVVM#ViewModel#TimeTableViewModel#ITaskNotifier{System#Threading#Tasks#Task}#Task">
+            <inheritdoc/>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier.op_Implicit(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier)~System.Threading.Tasks.Task">
+            <summary>
+            Unwraps the <see cref = "T:System.Threading.Tasks.Task"/> value stored in the current instance.
+            </summary>
+            <param name = "notifier">The input <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1"/> instance.</param>
+        </member>
+        <member name="T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1">
+            <summary>
+            A wrapping class that can hold a <see cref = "T:System.Threading.Tasks.Task`1"/> value.
+            </summary>
+            <typeparam name = "T">The type of value for the wrapped <see cref = "T:System.Threading.Tasks.Task`1"/> instance.</typeparam>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1"/> class.
+            </summary>
+        </member>
+        <member name="P:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1.MRSUMobile#MVVM#ViewModel#TimeTableViewModel#ITaskNotifier{System#Threading#Tasks#Task{T}}#Task">
+            <inheritdoc/>
+        </member>
+        <member name="M:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1.op_Implicit(MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier{`0})~System.Threading.Tasks.Task{`0}">
+            <summary>
+            Unwraps the <see cref = "T:System.Threading.Tasks.Task`1"/> value stored in the current instance.
+            </summary>
+            <param name = "notifier">The input <see cref = "T:MRSUMobile.MVVM.ViewModel.TimeTableViewModel.TaskNotifier`1"/> instance.</param>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.User">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "User" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Login">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Login" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoginPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoginPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PasswordPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PasswordPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SignInPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SignInPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SignInOfflinePlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SignInOfflinePlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RefreshPasswordPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RefreshPasswordPlaceholder" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.User">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "User" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Login">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Login" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoginPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoginPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PasswordPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PasswordPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SignInPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SignInPlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SignInOfflinePlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SignInOfflinePlaceholder" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RefreshPasswordPlaceholder">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RefreshPasswordPlaceholder" generated properties.</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+	<Style TargetType="ContentPage">
+		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MainLight}, Dark={StaticResource MainDark}}"/>
+	</Style>
+
+	<Style TargetType="Entry">
+		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
+		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+		<Setter Property="FontSize" Value="14"/>
+	</Style>
+
+	<Style TargetType="Label">
+		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="Margin" Value="3"/>
+	</Style>
+
+	<Style x:Key="TextAccents" TargetType="Label">
+		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+		<Setter Property="FontSize" Value="26"/>
+		<Setter Property="Margin" Value="0,0,0,14"/>
+	</Style>
+
+	<Style TargetType="Button">
+		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
+		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+	</Style>
+
+	<Style TargetType="toolkit:AvatarView">
+		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
+		<Setter Property="Text" Value="Avatar"/>
+		<Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
+	</Style>
+
+	<Style x:Key="SubPannel" TargetType="StackLayout">
+		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
+		<Setter Property="Margin" Value="0,10"/>
+		<Setter Property="Padding" Value="10"/>
+	</Style>
+
+</ResourceDictionary>
