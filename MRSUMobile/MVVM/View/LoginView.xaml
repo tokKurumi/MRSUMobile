@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MRSUMobile.MVVM.View.LoginView"
+	Title="{Binding LoginPage}">
+
+	<VerticalStackLayout
+		Padding="10"
+		VerticalOptions="CenterAndExpand">
+
+		<Image Style="{StaticResource LogoMrsu}"/>
+		<Entry Text="{Binding Login}" Placeholder="{Binding LoginPlaceholder}" Margin="10"/>
+		<Entry Text="{Binding Password}" IsPassword="True" Placeholder="{Binding PasswordPlaceholder}" Margin="10"/>
+		<Button Text="{Binding SignInPlaceholder}" Command="{Binding SignInCommand}" Margin="10"/>
+		<Button Text="{Binding SignInOfflinePlaceholder}" Command="{Binding SignInOfflineCommand}" Margin="10"/>
+		<Button Text="{Binding RefreshPasswordPlaceholder}" Command="{Binding RestorePasswordCommand}" Margin="10"/>
+
+	</VerticalStackLayout>
+</ContentPage>
