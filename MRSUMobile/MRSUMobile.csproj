@@ -54,7 +54,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="MonkeyCache" Version="2.0.1" />
 		<PackageReference Include="MonkeyCache.FileStore" Version="2.0.1" />
-		<PackageReference Include="XCalendar.Maui" Version="4.5.2" />
+		<PackageReference Include="Plugin.Maui.Calendar" Version="1.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>

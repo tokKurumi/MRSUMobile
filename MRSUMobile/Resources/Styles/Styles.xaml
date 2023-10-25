@@ -3,7 +3,8 @@
 <ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+	xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar">
 
 	<Style TargetType="ContentPage">
 		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MainLight}, Dark={StaticResource MainDark}}"/>
@@ -43,6 +44,23 @@
 		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
 		<Setter Property="Margin" Value="0,10"/>
 		<Setter Property="Padding" Value="10"/>
+	</Style>
+
+	<Style TargetType="controls:Calendar">
+		<Setter Property="DayViewCornerRadius" Value="8"/>
+		<Setter Property="DayViewSize" Value="40"/>
+		<Setter Property="DaysTitleColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+		<Setter Property="DaysTitleHeight" Value="40"/>
+		<Setter Property="FooterArrowVisible" Value="False"/>
+		<Setter Property="FooterSectionVisible" Value="False"/>
+		<Setter Property="BackgroundColor" Value="Transparent"/>
+		<Setter Property="ArrowsBackgroundColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+		<Setter Property="ArrowsBorderWidth" Value="3"/>
+		<Setter Property="ArrowsBorderColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
+		<Setter Property="ArrowsColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+		<Setter Property="ArrowsFontSize" Value="25"/>
+		<Setter Property="SelectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+		<Setter Property="DeselectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextSubLight}, Dark={StaticResource TextSubDark}}"/>
 	</Style>
 
 </ResourceDictionary>

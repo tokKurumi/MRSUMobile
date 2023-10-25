@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MRSUMobile.Services;
-using XCalendar.Core.Models;
+using System.Globalization;
 
 namespace MRSUMobile.MVVM.ViewModel
 {
@@ -12,11 +13,19 @@ namespace MRSUMobile.MVVM.ViewModel
 		{
 			mrsuApi = mrsuApiService;
 
-			//Application.Current
+
+		}
+
+		[RelayCommand]
+		Task DayTapped(DateTime date)
+		{
+			var message = $"Received tap event from date: {date}";
+
+			return Task.CompletedTask;
 		}
 
 		[ObservableProperty]
-		Calendar<CalendarDay> timeTable;
+		CultureInfo culture = new CultureInfo("ru-RU");
 
 		[ObservableProperty]
 		string timeTablePage = "Расписание";
