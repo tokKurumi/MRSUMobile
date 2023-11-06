@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MRSUMobile.MVVM.ViewModel;
 using MRSUMobile.Services;
@@ -19,7 +20,11 @@ namespace MRSUMobile
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				});
 
-			builder.Services.AddSingleton<IMrsuApiService, MrsuApiService>();
+			builder.Configuration
+				.AddJsonStream(FileSystem.OpenAppPackageFileAsync("appsettings.json").Result);
+
+			builder.Services
+				.AddSingleton<IMrsuApiService, MrsuApiService>();
 
 			builder.Services
 				.AddTransient<LoginViewModel>()

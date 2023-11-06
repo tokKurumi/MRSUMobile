@@ -16,7 +16,7 @@ namespace MRSUMobile.Entities
 		[JsonPropertyName("refresh_token")]
 		public string RefreshToken { get; set; }
 
-		private const int auto_expires = 600; // Expire token after 10 mins
+		private const int auto_expires = 5400; // Expire token after 1.5 hours
 		private DateTime create_date = DateTime.Now;
 		public bool IsExpired()
 		{

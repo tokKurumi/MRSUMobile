@@ -1,5 +1,4 @@
 ﻿using MRSUMobile.Helpers;
-using MRSUMobile.MVVM.View;
 using MRSUMobile.MVVM.ViewModel;
 
 namespace MRSUMobile
@@ -11,8 +10,6 @@ namespace MRSUMobile
 			InitializeComponent();
 
 			BindingContext = ServiceHelper.GetService<AppShellViewModel>();
-
-			Routing.RegisterRoute("Logout", typeof(LoginView));
 		}
 	}
 }
