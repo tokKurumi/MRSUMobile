@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using MonkeyCache.FileStore;
-using MRSUMobile.Entities;
-using MRSUMobile.Helpers;
+﻿using MRSUMobile.Entities;
 using MRSUMobile.MVVM.Model;
 using System.Net;
 using System.Net.Http.Headers;
@@ -26,20 +23,19 @@ namespace MRSUMobile.Services
 
 	public class MrsuApiService : IMrsuApiService
 	{
-		Preferenses preferenses;
-
 		const string BASE_URL = @"https://papi.mrsu.ru/";
 		const string BASE_AUTORIZATION_URL = @"https://p.mrsu.ru/OAuth/";
 		const string CLIENT_ID_AUTORIZATION = "8";
 		const string CLIENT_SECRET_AUTORIZATION = "qweasd";
 
-		HttpClient MrsuApi = new HttpClient() { BaseAddress = new Uri(BASE_URL) };
-		HttpClient MrsuAutorizationApi = new HttpClient() { BaseAddress = new Uri(BASE_AUTORIZATION_URL) };
-
-		public MrsuApiService(IConfiguration configuration)
+		public MrsuApiService()
 		{
-			preferenses = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+			MrsuApi = new HttpClient() { BaseAddress = new Uri(BASE_URL) };
+			MrsuAutorizationApi = new HttpClient() { BaseAddress = new Uri(BASE_AUTORIZATION_URL) };
 		}
+
+		HttpClient MrsuApi { get; init; }
+		HttpClient MrsuAutorizationApi { get; init; }
 
 		public async Task<HttpStatusCode> Ping()
 		{
@@ -64,7 +60,7 @@ namespace MRSUMobile.Services
 			return BearerToken.IsExpired();
 		}
 
-		public async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
+		public virtual async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
 		{
 			var tokenResponse = await MrsuAutorizationApi.PostAsync(@"Token", new FormUrlEncodedContent(new Dictionary<string, string>()
 			{
@@ -80,16 +76,14 @@ namespace MRSUMobile.Services
 				throw new HttpResponseException(tokenResponse);
 			}
 
-			var myToken = await JsonSerializer.DeserializeAsync<Token>
+			return await JsonSerializer.DeserializeAsync<Token>
 			(
 				await tokenResponse.Content.ReadAsStreamAsync(),
 				cancellationToken: cancellationToken
 			);
-			PreferenceStorageProvider.Set(preferenses.Token, myToken);
-
-			return myToken;
 		}
-		public async Task<Token> RefreshSession(Token refreshToken, CancellationToken cancellationToken = default)
+
+		public virtual async Task<Token> RefreshSession(Token refreshToken, CancellationToken cancellationToken = default)
 		{
 			var tokenResponse = await MrsuAutorizationApi.PostAsync(@"Token", new FormUrlEncodedContent(new Dictionary<string, string>()
 			{
@@ -104,28 +98,22 @@ namespace MRSUMobile.Services
 				throw new HttpResponseException(tokenResponse);
 			}
 
-			var myToken = await JsonSerializer.DeserializeAsync<Token>
+			var refreshedToken = await JsonSerializer.DeserializeAsync<Token>
 			(
 				await tokenResponse.Content.ReadAsStreamAsync(),
 				cancellationToken: cancellationToken
 			);
-			PreferenceStorageProvider.Set(preferenses.Token, myToken);
 
-			return myToken;
+			SetToken(refreshedToken);
+
+			return refreshedToken;
 		}
 
-		public async Task<User> GetMyProfile(CancellationToken cancellationToken = default)
+		public virtual async Task<User> GetMyProfile(CancellationToken cancellationToken = default)
 		{
-			var cachekey = $"cahce_GetUser";
-
-			if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
-			{
-				return Barrel.Current.Get<User>(cachekey);
-			}
-
 			if (!IsAutorized())
 			{
-				SetToken(await RefreshSession(BearerToken));
+				await RefreshSession(BearerToken);
 			}
 
 			var userResponse = await MrsuApi.GetAsync(@"v1/User", cancellationToken);
@@ -135,29 +123,18 @@ namespace MRSUMobile.Services
 				throw new HttpResponseException(userResponse);
 			}
 
-			var myProfile = await JsonSerializer.DeserializeAsync<User>
+			return await JsonSerializer.DeserializeAsync<User>
 			(
 				await userResponse.Content.ReadAsStreamAsync(),
 				cancellationToken: cancellationToken
 			);
-
-			Barrel.Current.Add(cachekey, myProfile, TimeSpan.FromDays(7));
-
-			return myProfile;
 		}
 
-		public async Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default)
+		public virtual async Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default)
 		{
-			var cachekey = $"cache_GetDiary--{date.ToShortDateString()}";
-
-			if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
-			{
-				return Barrel.Current.Get<StudentTimeTable>(cachekey);
-			}
-
 			if (!IsAutorized())
 			{
-				SetToken(await RefreshSession(BearerToken));
+				await RefreshSession(BearerToken);
 			}
 
 			var diaryResponse = await MrsuApi.SendAsync(new HttpRequestMessage(HttpMethod.Get, @"v1/StudentTimeTable")
@@ -173,22 +150,18 @@ namespace MRSUMobile.Services
 				throw new HttpResponseException(diaryResponse);
 			}
 
-			var myTimeTable = await JsonSerializer.DeserializeAsync<StudentTimeTable>
+			return await JsonSerializer.DeserializeAsync<StudentTimeTable>
 			(
 				await diaryResponse.Content.ReadAsStreamAsync(),
 				cancellationToken: cancellationToken
 			);
-
-			Barrel.Current.Add(cachekey, myTimeTable, TimeSpan.FromDays(1));
-
-			return myTimeTable;
 		}
 
 		public async Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default)
 		{
 			if (!IsAutorized())
 			{
-				SetToken(await RefreshSession(BearerToken));
+				await RefreshSession(BearerToken);
 			}
 
 			var codeResponse = await MrsuApi.SendAsync(new HttpRequestMessage(HttpMethod.Post, @"v1/StudentTimeTable")

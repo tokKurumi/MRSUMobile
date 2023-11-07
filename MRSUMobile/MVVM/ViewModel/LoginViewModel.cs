@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MRSUMobile.Helpers;
 using MRSUMobile.Entities;
 using MRSUMobile.Services;
 using System.Web.Http;
@@ -11,25 +10,26 @@ namespace MRSUMobile.MVVM.ViewModel
 {
 	public partial class LoginViewModel : ObservableObject
 	{
-		Preferenses preferenses;
-		IMrsuApiService mrsuApi;
+		Preferenses preferenceConfig;
+		MrsuStorageService mrsuStorage;
 
-		public LoginViewModel(IConfiguration configuration, IMrsuApiService mrsuApiService)
+		public LoginViewModel(IConfiguration configuration, MrsuApiService mrsuStorageService)
 		{
-			preferenses = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
-			mrsuApi = mrsuApiService;
+			preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+			mrsuStorage = mrsuStorageService as MrsuStorageService;
 		}
 
 		[RelayCommand]
 		async Task Appearing()
 		{
-			if (PreferenceStorageProvider.ContainsKey(preferenses.Token))
+			if (mrsuStorage.Preference.ContainsKey(preferenceConfig.Token))
 			{
-				var token = PreferenceStorageProvider.Get<Token>(preferenses.Token);
+				var token = mrsuStorage.Preference.Get<Token>(preferenceConfig.Token);
 				try
 				{
-					var refreshed = await mrsuApi.RefreshSession(token);
-					mrsuApi.SetToken(refreshed);
+					mrsuStorage.SetToken(token);
+					var refreshed = await mrsuStorage.RefreshSession(token);
+
 					Application.Current.MainPage = new AppShell();
 				}
 				catch (HttpResponseException)
@@ -61,8 +61,8 @@ namespace MRSUMobile.MVVM.ViewModel
 		{
 			try
 			{
-				var token = await mrsuApi.Autorize(Login, Password);
-				mrsuApi.SetToken(token);
+				var token = await mrsuStorage.Autorize(Login, Password);
+				mrsuStorage.SetToken(token);
 				Application.Current.MainPage = new AppShell();
 			}
 			catch (HttpResponseException ex)

@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Configuration;
 using MRSUMobile.Entities;
-using MRSUMobile.Helpers;
 using MRSUMobile.MVVM.Model;
 using MRSUMobile.MVVM.View;
 using MRSUMobile.Services;
@@ -11,17 +10,17 @@ namespace MRSUMobile.MVVM.ViewModel
 {
 	public partial class AppShellViewModel : ObservableObject
 	{
-		Preferenses preferenses;
-		IMrsuApiService mrsuApi;
+		Preferenses preferenceConfig;
+		MrsuStorageService mrsuStorage;
 
-		public AppShellViewModel(IConfiguration configuration, IMrsuApiService mrsuApiService)
+		public AppShellViewModel(IConfiguration configuration, MrsuApiService mrsuStorageService)
 		{
-			preferenses = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
-			mrsuApi = mrsuApiService;
+			preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+			mrsuStorage = mrsuStorageService as MrsuStorageService;
 
 			Application.Current.Dispatcher.DispatchAsync(async () =>
 			{
-				User = await mrsuApi.GetMyProfile();
+				User = await mrsuStorage.GetMyProfile();
 			});
 		}
 
@@ -40,7 +39,7 @@ namespace MRSUMobile.MVVM.ViewModel
 		[RelayCommand]
 		void Logout()
 		{
-			PreferenceStorageProvider.Clear(preferenses.Token);
+			mrsuStorage.Preference.Clear(preferenceConfig.Token);
 			Application.Current.MainPage = new LoginView();
 		}
 	}

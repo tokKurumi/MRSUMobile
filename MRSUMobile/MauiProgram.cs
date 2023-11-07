@@ -24,7 +24,9 @@ namespace MRSUMobile
 				.AddJsonStream(FileSystem.OpenAppPackageFileAsync("appsettings.json").Result);
 
 			builder.Services
-				.AddSingleton<IMrsuApiService, MrsuApiService>();
+				.AddSingleton<IMrsuApiService, MrsuApiService>()
+				.AddSingleton<IPreferenceStorageService, PreferenceStorageService>()
+				.AddSingleton<MrsuApiService, MrsuStorageService>();
 
 			builder.Services
 				.AddTransient<LoginViewModel>()

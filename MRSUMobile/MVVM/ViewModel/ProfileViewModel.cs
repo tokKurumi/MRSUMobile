@@ -6,16 +6,16 @@ namespace MRSUMobile.MVVM.ViewModel
 {
 	public partial class ProfileViewModel : ObservableObject
 	{
-		IMrsuApiService mrsuApi;
+		MrsuStorageService mrsuStorage;
 
-		public ProfileViewModel(IMrsuApiService mrsuApiService)
+		public ProfileViewModel(MrsuApiService mrsuStorageService)
 		{
-			mrsuApi = mrsuApiService;
+			mrsuStorage = mrsuStorageService as MrsuStorageService;
 
 			Application.Current.Dispatcher.DispatchAsync(async () =>
 			{
-				User = await mrsuApi.GetMyProfile();
-				ApiStatus = (await mrsuApi.Ping()).ToString();
+				User = await mrsuStorage.GetMyProfile();
+				ApiStatus = (await mrsuStorage.Ping()).ToString();
 			});
 		}
 
