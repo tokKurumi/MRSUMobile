@@ -1,7 +1,7 @@
 ﻿namespace MRSUMobile.Entities
 {
-	public class Preferenses
-	{
-		public string Token { get; set; }
-	}
+    public class Preferenses
+    {
+        public string Token { get; set; }
+    }
 }

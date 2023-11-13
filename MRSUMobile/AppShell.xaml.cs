@@ -3,13 +3,13 @@ using MRSUMobile.MVVM.ViewModel;
 
 namespace MRSUMobile
 {
-	public partial class AppShell : Shell
-	{
-		public AppShell()
-		{
-			InitializeComponent();
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
 
-			BindingContext = ServiceHelper.GetService<AppShellViewModel>();
-		}
-	}
+            BindingContext = ServiceHelper.GetService<AppShellViewModel>();
+        }
+    }
 }

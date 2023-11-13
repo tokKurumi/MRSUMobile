@@ -5,10 +5,10 @@ namespace MRSUMobile.MVVM.View;
 
 public partial class LoginView : ContentPage
 {
-	public LoginView()
-	{
-		InitializeComponent();
+    public LoginView()
+    {
+        InitializeComponent();
 
-		BindingContext = ServiceHelper.GetService<LoginViewModel>();
-	}
+        BindingContext = ServiceHelper.GetService<LoginViewModel>();
+    }
 }

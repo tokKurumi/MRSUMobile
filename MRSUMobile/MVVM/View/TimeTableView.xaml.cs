@@ -5,10 +5,10 @@ namespace MRSUMobile.MVVM.View;
 
 public partial class TimeTableView : ContentPage
 {
-	public TimeTableView()
-	{
-		InitializeComponent();
+    public TimeTableView()
+    {
+        InitializeComponent();
 
-		BindingContext = ServiceHelper.GetService<TimeTableViewModel>();
-	}
+        BindingContext = ServiceHelper.GetService<TimeTableViewModel>();
+    }
 }

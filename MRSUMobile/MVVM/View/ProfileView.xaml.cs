@@ -5,10 +5,10 @@ namespace MRSUMobile.MVVM.View;
 
 public partial class ProfileView : ContentPage
 {
-	public ProfileView()
-	{
-		InitializeComponent();
+    public ProfileView()
+    {
+        InitializeComponent();
 
-		BindingContext = ServiceHelper.GetService<ProfileViewModel>();
-	}
+        BindingContext = ServiceHelper.GetService<ProfileViewModel>();
+    }
 }
