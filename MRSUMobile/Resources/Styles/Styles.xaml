@@ -6,61 +6,65 @@
 	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
 	xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar">
 
-	<Style TargetType="ContentPage">
-		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MainLight}, Dark={StaticResource MainDark}}"/>
-	</Style>
+    <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource MainLight}, Dark={StaticResource MainDark}}"/>
+    </Style>
 
-	<Style TargetType="Entry">
-		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
-		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
-		<Setter Property="FontSize" Value="14"/>
-	</Style>
+    <Style TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
 
-	<Style TargetType="Label">
-		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
-		<Setter Property="FontSize" Value="18"/>
-		<Setter Property="Margin" Value="3"/>
-	</Style>
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Margin" Value="3"/>
+    </Style>
 
-	<Style x:Key="TextAccents" TargetType="Label">
-		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
-		<Setter Property="FontSize" Value="26"/>
-		<Setter Property="Margin" Value="0,0,0,14"/>
-	</Style>
+    <Style x:Key="TextAccents" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="Margin" Value="0,0,0,14"/>
+    </Style>
 
-	<Style TargetType="Button">
-		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
-		<Setter Property="FontSize" Value="18"/>
-		<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
-	</Style>
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+    </Style>
 
-	<Style TargetType="toolkit:AvatarView">
-		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
-		<Setter Property="Text" Value="Avatar"/>
-		<Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
-	</Style>
+    <Style TargetType="toolkit:AvatarView">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}"/>
+        <Setter Property="Text" Value="Avatar"/>
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ButtonLight}, Dark={StaticResource ButtonDark}}"/>
+    </Style>
 
-	<Style x:Key="SubPannel" TargetType="StackLayout">
-		<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
-		<Setter Property="Margin" Value="0,10"/>
-		<Setter Property="Padding" Value="10"/>
-	</Style>
+    <Style x:Key="SubPannel" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
+        <Setter Property="Margin" Value="0,10"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
 
-	<Style TargetType="controls:Calendar">
-		<Setter Property="DayViewCornerRadius" Value="8"/>
-		<Setter Property="DayViewSize" Value="40"/>
-		<Setter Property="DaysTitleColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
-		<Setter Property="DaysTitleHeight" Value="40"/>
-		<Setter Property="FooterArrowVisible" Value="False"/>
-		<Setter Property="FooterSectionVisible" Value="False"/>
-		<Setter Property="BackgroundColor" Value="Transparent"/>
-		<Setter Property="ArrowsBackgroundColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
-		<Setter Property="ArrowsBorderWidth" Value="3"/>
-		<Setter Property="ArrowsBorderColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
-		<Setter Property="ArrowsColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
-		<Setter Property="ArrowsFontSize" Value="25"/>
-		<Setter Property="SelectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
-		<Setter Property="DeselectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextSubLight}, Dark={StaticResource TextSubDark}}"/>
-	</Style>
+    <Style TargetType="controls:Calendar">
+        <Setter Property="DayViewCornerRadius" Value="8"/>
+        <Setter Property="DayViewSize" Value="40"/>
+        <Setter Property="DaysTitleColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+        <Setter Property="DaysTitleHeight" Value="40"/>
+        <Setter Property="FooterArrowVisible" Value="False"/>
+        <Setter Property="FooterSectionVisible" Value="False"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="ArrowsBackgroundColor" Value="{AppThemeBinding Light={StaticResource TextAccentsLight}, Dark={StaticResource TextAccentsDark}}"/>
+        <Setter Property="ArrowsBorderWidth" Value="3"/>
+        <Setter Property="ArrowsBorderColor" Value="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
+        <Setter Property="ArrowsColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+        <Setter Property="ArrowsFontSize" Value="25"/>
+        <Setter Property="SelectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}"/>
+        <Setter Property="DeselectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextSubLight}, Dark={StaticResource TextSubDark}}"/>
+    </Style>
+
+    <Style TargetType="CollectionView" x:Key="DiaryPannel">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SubLight}, Dark={StaticResource SubDark}}"/>
+    </Style>
 
 </ResourceDictionary>

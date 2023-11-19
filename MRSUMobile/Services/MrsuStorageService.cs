@@ -14,9 +14,13 @@
         {
             _preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
             Preference = preferenceStorageService;
+
+            Diary = new Dictionary<DateOnly, List<StudentTimeTable>>();
         }
 
         public IPreferenceStorageService Preference { get; init; }
+
+        public Dictionary<DateOnly, List<StudentTimeTable>> Diary { get; private set; }
 
         public override async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
         {
@@ -69,6 +73,19 @@
             {
                 throw;
             }
+        }
+
+        public override async Task<List<StudentTimeTable>> GetTimeTable(DateOnly date, CancellationToken cancellationToken = default)
+        {
+            if (Diary.ContainsKey(date))
+            {
+                return Diary[date];
+            }
+
+            var selectedDate = await base.GetTimeTable(date, cancellationToken);
+            Diary.Add(date, selectedDate);
+
+            return selectedDate;
         }
     }
 }

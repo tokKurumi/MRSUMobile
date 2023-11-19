@@ -1,18 +1,105 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MRSUMobile.MVVM.View.TimeTableView"
-    xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
-    Title="{Binding TimeTablePage}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MRSUMobile.MVVM.View.TimeTableView"
+             xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="{Binding TimeTablePage}">
 
     <ScrollView>
-        <StackLayout Style="{StaticResource SubPannel}" Margin="0">
-
+        <StackLayout Margin="0">
             <controls:Calendar CalendarLayout="Week"
-                Culture="{Binding Culture}"
-                DayTappedCommand="{Binding DayTappedCommand}"/>
+                               Culture="{Binding Culture}"
+                               DayTappedCommand="{Binding DayTappedCommand}"/>
 
-            <Label Text="123"/>
+            <CollectionView ItemsSource="{Binding StudentTimeTable}"
+                            Style="{StaticResource DiaryPannel}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{StaticResource SubPannel}" MaximumWidthRequest="320">
+                            <Label Text="{Binding FacultyName}" Style="{StaticResource TextAccents}"/>
+
+                            <CollectionView ItemsSource="{Binding TimeTable.Lessons}" HorizontalOptions="Center" WidthRequest="320">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid HorizontalOptions="StartAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="300"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Label Text="{Binding Number}" Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="CenterAndExpand"/>
+
+                                            <CollectionView ItemsSource="{Binding Disciplines}" Grid.Row="0" Grid.Column="1">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="220"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <StackLayout Grid.Row="0" Grid.Column="0" Padding="5">
+                                                                <Label Text="{Binding Title}" FontSize="13"/>
+                                                                
+                                                                <HorizontalStackLayout>
+                                                                    <Label Text="Аудитория" FontSize="12"/>
+                                                                    <Label Text="{Binding Auditorium.Number}"
+                                                                           FontSize="12"
+                                                                           Style="{StaticResource TextAccents}"
+                                                                           Margin="0"
+                                                                           VerticalTextAlignment="Center"/>
+                                                                    
+                                                                </HorizontalStackLayout>
+                                                                
+                                                            </StackLayout>
+
+                                                            <StackLayout Grid.Row="0"
+                                                                         Grid.Column="1"
+                                                                         VerticalOptions="CenterAndExpand">
+                                                                
+                                                                <toolkit:AvatarView
+                                                                    ImageSource="{Binding Teacher.Photo.UrlSmall}"
+                                                                    Margin="0"
+                                                                    Padding="0"
+                                                                    WidthRequest="50"
+                                                                    HeightRequest="50"
+                                                                    BorderWidth="0"
+                                                                    CornerRadius="25"
+                                                                    HorizontalOptions="CenterAndExpand"
+                                                                    VerticalOptions="CenterAndExpand"/>
+
+                                                                <Label Text="{Binding Teacher.UserName}"
+                                                                       FontSize="10"
+                                                                       HorizontalTextAlignment="Center"/>
+                                                            </StackLayout>
+                                                        </Grid>
+                                                        
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
         </StackLayout>
     </ScrollView>

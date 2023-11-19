@@ -12,7 +12,7 @@
 
         Task<User> GetMyProfile(CancellationToken cancellationToken = default);
 
-        Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default);
+        Task<List<StudentTimeTable>> GetTimeTable(DateOnly date, CancellationToken cancellationToken = default);
 
         bool IsAutorized();
 

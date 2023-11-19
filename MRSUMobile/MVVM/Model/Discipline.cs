@@ -8,7 +8,7 @@
 
         public string Language { get; set; }
 
-        public int LessonType { get; set; }
+        public DisciplineType LessonType { get; set; }
 
         public bool Remote { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public class TimeTable
     {
-        public DateTime Date { get; set; }
+        public DateTimeOffset Date { get; set; }
 
         public List<Lesson> Lessons { get; set; }
     }

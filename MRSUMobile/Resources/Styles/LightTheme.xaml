@@ -4,16 +4,17 @@
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-	<Color x:Key="MainLight">#f4f5fb</Color>
-	<Color x:Key="SecondaryLight">#b2b3b7</Color>
-	<Color x:Key="TextLight">#1a1a1a</Color>
-	<Color x:Key="TextSubLight">#464646</Color>
-	<Color x:Key="TextAccentsLight">#139ded</Color>
-	<Color x:Key="ButtonLight">#4928b0</Color>
-	<Color x:Key="EntryLight">#3a3b3e</Color>
+    <Color x:Key="MainLight">#f4f5fb</Color>
+    <Color x:Key="SubLight">#b2b3b7</Color>
+    <Color x:Key="SecondaryLight">#a0a1a5</Color>
+    <Color x:Key="TextLight">#1a1a1a</Color>
+    <Color x:Key="TextSubLight">#464646</Color>
+    <Color x:Key="TextAccentsLight">#139ded</Color>
+    <Color x:Key="ButtonLight">#4928b0</Color>
+    <Color x:Key="EntryLight">#3a3b3e</Color>
 
-	<Style x:Key="LogoMrsu" TargetType="Image">
-		<Setter Property="Source" Value="mrsu_logo_light.png"/>
-	</Style>
+    <Style x:Key="LogoMrsu" TargetType="Image">
+        <Setter Property="Source" Value="mrsu_logo_light.png"/>
+    </Style>
 
 </ResourceDictionary>

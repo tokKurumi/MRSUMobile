@@ -117,28 +117,23 @@
                 cancellationToken: cancellationToken);
         }
 
-        public virtual async Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default)
+        public virtual async Task<List<StudentTimeTable>> GetTimeTable(DateOnly date, CancellationToken cancellationToken = default)
         {
             if (!IsAutorized())
             {
                 await RefreshSession(BearerToken);
             }
 
-            var diaryResponse = await MrsuApi.SendAsync(
-                new HttpRequestMessage(HttpMethod.Get, @"v1/StudentTimeTable")
-                {
-                    Content = new FormUrlEncodedContent(new Dictionary<string, string>()
-                    {
-                        { "date", date.ToShortDateString() },
-                    }),
-                }, cancellationToken);
+            var request = @$"v1/StudentTimeTable?date={date}";
+
+            var diaryResponse = await MrsuApi.GetAsync(request, cancellationToken);
 
             if (!diaryResponse.IsSuccessStatusCode)
             {
                 throw new HttpResponseException(diaryResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<StudentTimeTable>(
+            return await JsonSerializer.DeserializeAsync<List<StudentTimeTable>>(
                 await diaryResponse.Content.ReadAsStreamAsync(),
                 cancellationToken: cancellationToken);
         }
