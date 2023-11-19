@@ -1,45 +1,45 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Microsoft.Extensions.Configuration;
-using MRSUMobile.Entities;
-using MRSUMobile.MVVM.Model;
-using MRSUMobile.MVVM.View;
-using MRSUMobile.Services;
-
-namespace MRSUMobile.MVVM.ViewModel
+﻿namespace MRSUMobile.MVVM.ViewModel
 {
+    using CommunityToolkit.Mvvm.ComponentModel;
+    using CommunityToolkit.Mvvm.Input;
+    using Microsoft.Extensions.Configuration;
+    using MRSUMobile.Entities;
+    using MRSUMobile.MVVM.Model;
+    using MRSUMobile.MVVM.View;
+    using MRSUMobile.Services;
+
     public partial class AppShellViewModel : ObservableObject
     {
-        Preferenses preferenceConfig;
-        MrsuStorageService mrsuStorage;
+        private Preferenses _preferenceConfig;
+        private MrsuStorageService _mrsuStorage;
+
+        [ObservableProperty]
+        private string _profileShell = "Профиль";
+
+        [ObservableProperty]
+        private string _timeTableShell = "Расписание";
+
+        [ObservableProperty]
+        private string _logoutButton = "Выйти";
+
+        [ObservableProperty]
+        private User _user;
 
         public AppShellViewModel(IConfiguration configuration, MrsuApiService mrsuStorageService)
         {
-            preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
-            mrsuStorage = mrsuStorageService as MrsuStorageService;
+            _preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+            _mrsuStorage = mrsuStorageService as MrsuStorageService;
 
             Application.Current.Dispatcher.DispatchAsync(async () =>
             {
-                User = await mrsuStorage.GetMyProfile();
+                User = await _mrsuStorage.GetMyProfile();
             });
         }
 
-        [ObservableProperty]
-        string profileShell = "Профиль";
-
-        [ObservableProperty]
-        string timeTableShell = "Расписание";
-
-        [ObservableProperty]
-        string logoutButton = "Выйти";
-
-        [ObservableProperty]
-        User user;
-
         [RelayCommand]
-        void Logout()
+        private void Logout()
         {
-            mrsuStorage.Preference.Clear(preferenceConfig.Token);
+            _mrsuStorage.Preference.Clear(_preferenceConfig.Token);
             Application.Current.MainPage = new LoginView();
         }
     }

@@ -1,11 +1,11 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using MRSUMobile.MVVM.ViewModel;
-using MRSUMobile.Services;
-
-namespace MRSUMobile
+﻿namespace MRSUMobile
 {
+    using CommunityToolkit.Maui;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Logging;
+    using MRSUMobile.MVVM.ViewModel;
+    using MRSUMobile.Services;
+
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()

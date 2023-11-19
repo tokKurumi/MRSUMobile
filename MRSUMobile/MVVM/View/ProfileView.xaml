@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="MRSUMobile.MVVM.View.ProfileView"
-	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-	Title="{Binding Profile}">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MRSUMobile.MVVM.View.ProfileView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="{Binding Profile}">
 
-	<ScrollView>
-		<StackLayout>
-			<toolkit:AvatarView
-				ImageSource="{Binding User.Photo.UrlSmall}"
-				WidthRequest="200"
-				HeightRequest="200"
-				CornerRadius="100"
-				Margin="10"
-				Padding="0"/>
+    <ScrollView>
+        <StackLayout>
+            <toolkit:AvatarView
+                ImageSource="{Binding User.Photo.UrlSmall}"
+                WidthRequest="200"
+                HeightRequest="200"
+                CornerRadius="100"
+                Margin="10"
+                Padding="0"/>
 
-			<StackLayout Style="{StaticResource SubPannel}">
-				<Label Text="Данные пользователя" Style="{StaticResource TextAccents}"/>
-				
-				<Label Text="{Binding User.FIO}"/>
-				<Label Text="{Binding User.Email}"/>
-				<Label Text="{Binding User.BirthDate, StringFormat='{0:d MMMM yyyy}'}" Margin="2"/>
-			</StackLayout>
+            <StackLayout Style="{StaticResource SubPannel}">
+                <Label Text="Данные пользователя" Style="{StaticResource TextAccents}"/>
+                
+                <Label Text="{Binding User.FIO}"/>
+                <Label Text="{Binding User.Email}"/>
+                <Label Text="{Binding User.BirthDate, StringFormat='{0:d MMMM yyyy}'}" Margin="2"/>
+            </StackLayout>
 
-			<StackLayout Style="{StaticResource SubPannel}">
-				<Label Text="Данные университета" Style="{StaticResource TextAccents}"/>
+            <StackLayout Style="{StaticResource SubPannel}">
+                <Label Text="Данные университета" Style="{StaticResource TextAccents}"/>
 
-				<Label Text="430005, Республика Мордовия, г. Саранск, ул. Большевистская, д. 68."/>
-				<toolkit:Expander>
-					<toolkit:Expander.Header>
-						<Label Text="Наименование" TextDecorations="Underline"/>
-					</toolkit:Expander.Header>
-					<VerticalStackLayout>
-						<Label Text="Федеральное государственное бюджетное образовательное учреждение высшего образования «Национальный исследовательский Мордовский государственный университет им. Н.П. Огарёва»"/>
-						<Label Text="Национальный исследовательский Мордовский государственный университет"/>
-						<Label Text="МГУ им. Н.П. Огарёва"/>
-						<Label Text="ФГБОУ ВО «МГУ им. Н.П. Огарёва»"/>
-					</VerticalStackLayout>
-				</toolkit:Expander>
-			</StackLayout>
+                <Label Text="430005, Республика Мордовия, г. Саранск, ул. Большевистская, д. 68."/>
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="Наименование" TextDecorations="Underline"/>
+                    </toolkit:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label Text="Федеральное государственное бюджетное образовательное учреждение высшего образования «Национальный исследовательский Мордовский государственный университет им. Н.П. Огарёва»"/>
+                        <Label Text="Национальный исследовательский Мордовский государственный университет"/>
+                        <Label Text="МГУ им. Н.П. Огарёва"/>
+                        <Label Text="ФГБОУ ВО «МГУ им. Н.П. Огарёва»"/>
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </StackLayout>
 
-			<StackLayout Style="{StaticResource SubPannel}" Margin="0,10,0,0">
-				<Label Text="API Status" Style="{StaticResource TextAccents}"/>
+            <StackLayout Style="{StaticResource SubPannel}" Margin="0,10,0,0">
+                <Label Text="API Status" Style="{StaticResource TextAccents}"/>
 
-				<Label Text="{Binding ApiStatus}"/>
-			</StackLayout>
-		</StackLayout>
-	</ScrollView>
+                <Label Text="{Binding ApiStatus}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

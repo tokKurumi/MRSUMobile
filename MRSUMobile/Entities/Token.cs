@@ -1,9 +1,12 @@
-﻿using System.Text.Json.Serialization;
-
-namespace MRSUMobile.Entities
+﻿namespace MRSUMobile.Entities
 {
+    using System.Text.Json.Serialization;
+
     public class Token
     {
+        private const int _autoExpires = 5400; // Expire token after 1.5 hours
+        private DateTime _createDate = DateTime.Now;
+
         [JsonPropertyName("access_token")]
         public string AccessToken { get; set; }
 
@@ -16,11 +19,9 @@ namespace MRSUMobile.Entities
         [JsonPropertyName("refresh_token")]
         public string RefreshToken { get; set; }
 
-        private const int auto_expires = 5400; // Expire token after 1.5 hours
-        private DateTime create_date = DateTime.Now;
         public bool IsExpired()
         {
-            return (DateTime.Now - create_date).Seconds < auto_expires;
+            return (DateTime.Now - _createDate).Seconds < _autoExpires;
         }
     }
 }

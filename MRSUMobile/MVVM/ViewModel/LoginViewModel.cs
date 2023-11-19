@@ -1,34 +1,58 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using MRSUMobile.Entities;
-using MRSUMobile.Services;
-using System.Web.Http;
-using Microsoft.Extensions.Configuration;
-using CommunityToolkit.Maui.Alerts;
-
-namespace MRSUMobile.MVVM.ViewModel
+﻿namespace MRSUMobile.MVVM.ViewModel
 {
+    using CommunityToolkit.Maui.Alerts;
+    using CommunityToolkit.Mvvm.ComponentModel;
+    using CommunityToolkit.Mvvm.Input;
+    using Microsoft.Extensions.Configuration;
+    using MRSUMobile.Entities;
+    using MRSUMobile.Exceptions;
+    using MRSUMobile.Services;
+
     public partial class LoginViewModel : ObservableObject
     {
-        Preferenses preferenceConfig;
-        MrsuStorageService mrsuStorage;
+        private Preferenses _preferenceConfig;
+        private MrsuStorageService _mrsuStorage;
+
+        [ObservableProperty]
+        private string _loginPage = "Вход";
+
+        [ObservableProperty]
+        private string _login;
+
+        [ObservableProperty]
+        private string _loginPlaceholder = "Логин";
+
+        [ObservableProperty]
+        private string _password;
+
+        [ObservableProperty]
+        private string _passwordPlaceholder = "Пароль";
+
+        [ObservableProperty]
+        private string _signInPlaceholder = "Войти";
+
+        [ObservableProperty]
+        private string _signInOfflinePlaceholder = "Оффлайн вход";
+
+        [ObservableProperty]
+        private string _refreshPasswordPlaceholder = "Забыли пароль?";
 
         public LoginViewModel(IConfiguration configuration, MrsuApiService mrsuStorageService)
         {
-            preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
-            mrsuStorage = mrsuStorageService as MrsuStorageService;
+            _preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+            _mrsuStorage = mrsuStorageService as MrsuStorageService;
         }
 
         [RelayCommand]
-        async Task Appearing()
+        private async Task Appearing()
         {
-            if (mrsuStorage.Preference.ContainsKey(preferenceConfig.Token))
+            if (_mrsuStorage.Preference.ContainsKey(_preferenceConfig.Token))
             {
-                var token = mrsuStorage.Preference.Get<Token>(preferenceConfig.Token);
+                var token = _mrsuStorage.Preference.Get<Token>(_preferenceConfig.Token);
                 try
                 {
-                    mrsuStorage.SetToken(token);
-                    var refreshed = await mrsuStorage.RefreshSession(token);
+                    _mrsuStorage.SetToken(token);
+                    var refreshed = await _mrsuStorage.RefreshSession(token);
 
                     Application.Current.MainPage = new AppShell();
                 }
@@ -38,31 +62,13 @@ namespace MRSUMobile.MVVM.ViewModel
             }
         }
 
-        [ObservableProperty]
-        string loginPage = "Вход";
-
-        [ObservableProperty]
-        string login;
-
-        [ObservableProperty]
-        string loginPlaceholder = "Логин";
-
-        [ObservableProperty]
-        string password;
-
-        [ObservableProperty]
-        string passwordPlaceholder = "Пароль";
-
-        [ObservableProperty]
-        string signInPlaceholder = "Войти";
-
         [RelayCommand]
-        async Task SignIn()
+        private async Task SignIn()
         {
             try
             {
-                var token = await mrsuStorage.Autorize(Login, Password);
-                mrsuStorage.SetToken(token);
+                var token = await _mrsuStorage.Autorize(Login, Password);
+                _mrsuStorage.SetToken(token);
                 Application.Current.MainPage = new AppShell();
             }
             catch (HttpResponseException ex)
@@ -71,14 +77,8 @@ namespace MRSUMobile.MVVM.ViewModel
             }
         }
 
-        [ObservableProperty]
-        string signInOfflinePlaceholder = "Оффлайн вход";
-
-        [ObservableProperty]
-        string refreshPasswordPlaceholder = "Забыли пароль?";
-
         [RelayCommand]
-        void RestorePassword()
+        private void RestorePassword()
         {
         }
     }

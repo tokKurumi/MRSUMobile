@@ -1,31 +1,31 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using MRSUMobile.MVVM.Model;
-using MRSUMobile.Services;
-
-namespace MRSUMobile.MVVM.ViewModel
+﻿namespace MRSUMobile.MVVM.ViewModel
 {
+    using CommunityToolkit.Mvvm.ComponentModel;
+    using MRSUMobile.MVVM.Model;
+    using MRSUMobile.Services;
+
     public partial class ProfileViewModel : ObservableObject
     {
-        MrsuStorageService mrsuStorage;
+        private MrsuStorageService _mrsuStorage;
+
+        [ObservableProperty]
+        private User _user;
+
+        [ObservableProperty]
+        private string _apiStatus;
+
+        [ObservableProperty]
+        private string _profile = "Профиль";
 
         public ProfileViewModel(MrsuApiService mrsuStorageService)
         {
-            mrsuStorage = mrsuStorageService as MrsuStorageService;
+            _mrsuStorage = mrsuStorageService as MrsuStorageService;
 
             Application.Current.Dispatcher.DispatchAsync(async () =>
             {
-                User = await mrsuStorage.GetMyProfile();
-                ApiStatus = (await mrsuStorage.Ping()).ToString();
+                User = await _mrsuStorage.GetMyProfile();
+                ApiStatus = (await _mrsuStorage.Ping()).ToString();
             });
         }
-
-        [ObservableProperty]
-        User user;
-
-        [ObservableProperty]
-        string apiStatus;
-
-        [ObservableProperty]
-        string profile = "Профиль";
     }
 }

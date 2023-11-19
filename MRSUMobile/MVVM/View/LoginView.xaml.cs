@@ -1,7 +1,7 @@
+namespace MRSUMobile.MVVM.View;
+
 using MRSUMobile.Helpers;
 using MRSUMobile.MVVM.ViewModel;
-
-namespace MRSUMobile.MVVM.View;
 
 public partial class LoginView : ContentPage
 {

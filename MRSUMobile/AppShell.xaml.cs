@@ -1,8 +1,8 @@
-﻿using MRSUMobile.Helpers;
-using MRSUMobile.MVVM.ViewModel;
-
-namespace MRSUMobile
+﻿namespace MRSUMobile
 {
+    using MRSUMobile.Helpers;
+    using MRSUMobile.MVVM.ViewModel;
+
     public partial class AppShell : Shell
     {
         public AppShell()

@@ -1,8 +1,8 @@
-﻿using MonkeyCache.FileStore;
-using MRSUMobile.MVVM.View;
-
-namespace MRSUMobile
+﻿namespace MRSUMobile
 {
+    using MonkeyCache.FileStore;
+    using MRSUMobile.MVVM.View;
+
     public partial class App : Application
     {
         public App()

@@ -1,7 +1,7 @@
-﻿using Foundation;
-
-namespace MRSUMobile
+﻿namespace MRSUMobile
 {
+    using Foundation;
+
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate
     {

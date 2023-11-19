@@ -1,41 +1,30 @@
-﻿using MRSUMobile.Entities;
-using MRSUMobile.MVVM.Model;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Text.Json;
-using System.Web.Http;
-
-namespace MRSUMobile.Services
+﻿namespace MRSUMobile.Services
 {
-    public interface IMrsuApiService
-    {
-        Token BearerToken { get; }
-
-        Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default);
-        Task<User> GetMyProfile(CancellationToken cancellationToken = default);
-        Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default);
-        bool IsAutorized();
-        Task<HttpStatusCode> Ping();
-        Task<Token> RefreshSession(Token refreshToken, CancellationToken cancellationToken = default);
-        Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default);
-        void SetToken(Token bearer);
-    }
+    using System.Net;
+    using System.Net.Http.Headers;
+    using System.Text.Json;
+    using MRSUMobile.Entities;
+    using MRSUMobile.Exceptions;
+    using MRSUMobile.MVVM.Model;
 
     public class MrsuApiService : IMrsuApiService
     {
-        const string BASE_URL = @"https://papi.mrsu.ru/";
-        const string BASE_AUTORIZATION_URL = @"https://p.mrsu.ru/OAuth/";
-        const string CLIENT_ID_AUTORIZATION = "8";
-        const string CLIENT_SECRET_AUTORIZATION = "qweasd";
+        private const string _baseUrl = @"https://papi.mrsu.ru/";
+        private const string _baseAutorizationUrl = @"https://p.mrsu.ru/OAuth/";
+        private const string _clientIdAutorization = "8";
+        private const string _clientSecretAutorization = "qweasd";
 
         public MrsuApiService()
         {
-            MrsuApi = new HttpClient() { BaseAddress = new Uri(BASE_URL) };
-            MrsuAutorizationApi = new HttpClient() { BaseAddress = new Uri(BASE_AUTORIZATION_URL) };
+            MrsuApi = new HttpClient() { BaseAddress = new Uri(_baseUrl) };
+            MrsuAutorizationApi = new HttpClient() { BaseAddress = new Uri(_baseAutorizationUrl) };
         }
 
-        HttpClient MrsuApi { get; init; }
-        HttpClient MrsuAutorizationApi { get; init; }
+        public Token BearerToken { get; private set; }
+
+        private HttpClient MrsuApi { get; init; }
+
+        private HttpClient MrsuAutorizationApi { get; init; }
 
         public async Task<HttpStatusCode> Ping()
         {
@@ -44,12 +33,12 @@ namespace MRSUMobile.Services
             return pingResponse.StatusCode;
         }
 
-        public Token BearerToken { get; private set; }
         public void SetToken(Token bearer)
         {
             BearerToken = bearer;
             MrsuApi.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken.AccessToken);
         }
+
         public bool IsAutorized()
         {
             if (BearerToken is null)
@@ -62,47 +51,47 @@ namespace MRSUMobile.Services
 
         public virtual async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
         {
-            var tokenResponse = await MrsuAutorizationApi.PostAsync(@"Token", new FormUrlEncodedContent(new Dictionary<string, string>()
-            {
-                { "grant_type", "password" },
-                { "client_id", CLIENT_ID_AUTORIZATION },
-                { "client_secret", CLIENT_SECRET_AUTORIZATION },
-                { "username", username },
-                { "password", password }
-            }), cancellationToken);
+            var tokenResponse = await MrsuAutorizationApi.PostAsync(
+                @"Token",
+                new FormUrlEncodedContent(new Dictionary<string, string>()
+                {
+                    { "grant_type", "password" },
+                    { "client_id", _clientIdAutorization },
+                    { "client_secret", _clientSecretAutorization },
+                    { "username", username },
+                    { "password", password },
+                }), cancellationToken);
 
             if (!tokenResponse.IsSuccessStatusCode)
             {
                 throw new HttpResponseException(tokenResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<Token>
-            (
+            return await JsonSerializer.DeserializeAsync<Token>(
                 await tokenResponse.Content.ReadAsStreamAsync(),
-                cancellationToken: cancellationToken
-            );
+                cancellationToken: cancellationToken);
         }
 
         public virtual async Task<Token> RefreshSession(Token refreshToken, CancellationToken cancellationToken = default)
         {
-            var tokenResponse = await MrsuAutorizationApi.PostAsync(@"Token", new FormUrlEncodedContent(new Dictionary<string, string>()
-            {
-                { "grant_type", "refresh_token" },
-                { "client_id", CLIENT_ID_AUTORIZATION },
-                { "client_secret", CLIENT_SECRET_AUTORIZATION },
-                { "refresh_token", refreshToken.RefreshToken }
-            }), cancellationToken);
+            var tokenResponse = await MrsuAutorizationApi.PostAsync(
+                @"Token",
+                new FormUrlEncodedContent(new Dictionary<string, string>()
+                {
+                    { "grant_type", "refresh_token" },
+                    { "client_id", _clientIdAutorization },
+                    { "client_secret", _clientSecretAutorization },
+                    { "refresh_token", refreshToken.RefreshToken },
+                }), cancellationToken);
 
             if (!tokenResponse.IsSuccessStatusCode)
             {
                 throw new HttpResponseException(tokenResponse);
             }
 
-            var refreshedToken = await JsonSerializer.DeserializeAsync<Token>
-            (
+            var refreshedToken = await JsonSerializer.DeserializeAsync<Token>(
                 await tokenResponse.Content.ReadAsStreamAsync(),
-                cancellationToken: cancellationToken
-            );
+                cancellationToken: cancellationToken);
 
             SetToken(refreshedToken);
 
@@ -123,11 +112,9 @@ namespace MRSUMobile.Services
                 throw new HttpResponseException(userResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<User>
-            (
+            return await JsonSerializer.DeserializeAsync<User>(
                 await userResponse.Content.ReadAsStreamAsync(),
-                cancellationToken: cancellationToken
-            );
+                cancellationToken: cancellationToken);
         }
 
         public virtual async Task<StudentTimeTable> GetTimeTable(DateTime date, CancellationToken cancellationToken = default)
@@ -137,24 +124,23 @@ namespace MRSUMobile.Services
                 await RefreshSession(BearerToken);
             }
 
-            var diaryResponse = await MrsuApi.SendAsync(new HttpRequestMessage(HttpMethod.Get, @"v1/StudentTimeTable")
-            {
-                Content = new FormUrlEncodedContent(new Dictionary<string, string>()
+            var diaryResponse = await MrsuApi.SendAsync(
+                new HttpRequestMessage(HttpMethod.Get, @"v1/StudentTimeTable")
                 {
-                    { "date", date.ToShortDateString() }
-                })
-            }, cancellationToken);
+                    Content = new FormUrlEncodedContent(new Dictionary<string, string>()
+                    {
+                        { "date", date.ToShortDateString() },
+                    }),
+                }, cancellationToken);
 
             if (!diaryResponse.IsSuccessStatusCode)
             {
                 throw new HttpResponseException(diaryResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<StudentTimeTable>
-            (
+            return await JsonSerializer.DeserializeAsync<StudentTimeTable>(
                 await diaryResponse.Content.ReadAsStreamAsync(),
-                cancellationToken: cancellationToken
-            );
+                cancellationToken: cancellationToken);
         }
 
         public async Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default)
@@ -164,24 +150,23 @@ namespace MRSUMobile.Services
                 await RefreshSession(BearerToken);
             }
 
-            var codeResponse = await MrsuApi.SendAsync(new HttpRequestMessage(HttpMethod.Post, @"v1/StudentTimeTable")
-            {
-                Content = new FormUrlEncodedContent(new Dictionary<string, string>()
+            var codeResponse = await MrsuApi.SendAsync(
+                new HttpRequestMessage(HttpMethod.Post, @"v1/StudentTimeTable")
                 {
-                    { "code", code }
-                })
-            }, cancellationToken);
+                    Content = new FormUrlEncodedContent(new Dictionary<string, string>()
+                    {
+                        { "code", code },
+                    }),
+                }, cancellationToken);
 
             if (!codeResponse.IsSuccessStatusCode)
             {
                 throw new HttpResponseException(codeResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<StudentAttendanceCode>
-            (
+            return await JsonSerializer.DeserializeAsync<StudentAttendanceCode>(
                 await codeResponse.Content.ReadAsStreamAsync(),
-                cancellationToken: cancellationToken
-            );
+                cancellationToken: cancellationToken);
         }
     }
 }

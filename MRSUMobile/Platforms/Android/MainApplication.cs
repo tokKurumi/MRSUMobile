@@ -1,8 +1,8 @@
-﻿using Android.App;
-using Android.Runtime;
-
-namespace MRSUMobile
+﻿namespace MRSUMobile
 {
+    using Android.App;
+    using Android.Runtime;
+
     [Application]
     public class MainApplication : MauiApplication
     {

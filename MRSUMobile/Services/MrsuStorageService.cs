@@ -1,28 +1,29 @@
-﻿using Microsoft.Extensions.Configuration;
-using MonkeyCache.FileStore;
-using MRSUMobile.Entities;
-using MRSUMobile.MVVM.Model;
-using System.Web.Http;
-
-namespace MRSUMobile.Services
+﻿namespace MRSUMobile.Services
 {
+    using Microsoft.Extensions.Configuration;
+    using MonkeyCache.FileStore;
+    using MRSUMobile.Entities;
+    using MRSUMobile.Exceptions;
+    using MRSUMobile.MVVM.Model;
+
     public class MrsuStorageService : MrsuApiService
     {
-        Preferenses preferenceConfig;
-        public IPreferenceStorageService Preference { get; init; }
+        private Preferenses _preferenceConfig;
 
         public MrsuStorageService(IConfiguration configuration, IPreferenceStorageService preferenceStorageService)
         {
-            preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
+            _preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
             Preference = preferenceStorageService;
         }
+
+        public IPreferenceStorageService Preference { get; init; }
 
         public override async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
         {
             try
             {
                 var token = await base.Autorize(username, password, cancellationToken);
-                Preference.Set(preferenceConfig.Token, token);
+                Preference.Set(_preferenceConfig.Token, token);
 
                 return token;
             }
@@ -37,7 +38,7 @@ namespace MRSUMobile.Services
             try
             {
                 var newToken = await base.RefreshSession(refreshToken, cancellationToken);
-                Preference.Set(preferenceConfig.Token, newToken);
+                Preference.Set(_preferenceConfig.Token, newToken);
 
                 return newToken;
             }
