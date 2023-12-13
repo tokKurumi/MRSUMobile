@@ -22,6 +22,8 @@
 
         Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default);
 
+        Task<StudentSemestr> GetSemestr(int year, int period, CancellationToken cancellationToken = default);
+
         void SetToken(Token bearer);
     }
 }

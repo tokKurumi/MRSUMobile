@@ -20,6 +20,9 @@
         private string _timeTableShell = "Расписание";
 
         [ObservableProperty]
+        private string _academicPerformanceShell = "Успеваемость";
+
+        [ObservableProperty]
         private string _logoutButton = "Выйти";
 
         [ObservableProperty]
@@ -39,7 +42,7 @@
         [RelayCommand]
         private void Logout()
         {
-            _mrsuStorage.Preference.Clear(_preferenceConfig.Token);
+            _mrsuStorage.Clear();
             Application.Current.MainPage = new LoginView();
         }
     }

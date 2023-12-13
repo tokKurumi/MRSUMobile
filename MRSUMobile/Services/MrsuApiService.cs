@@ -138,7 +138,7 @@
                 cancellationToken: cancellationToken);
         }
 
-        public async Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default)
+        public virtual async Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default)
         {
             if (!IsAutorized())
             {
@@ -161,6 +161,27 @@
 
             return await JsonSerializer.DeserializeAsync<StudentAttendanceCode>(
                 await codeResponse.Content.ReadAsStreamAsync(),
+                cancellationToken: cancellationToken);
+        }
+
+        public virtual async Task<StudentSemestr> GetSemestr(int year, int period, CancellationToken cancellationToken = default)
+        {
+            if (!IsAutorized())
+            {
+                await RefreshSession(BearerToken);
+            }
+
+            var request = @$"v1/StudentSemester?year={year} - {year + 1}&period={period}";
+
+            var semestrResponse = await MrsuApi.GetAsync(request, cancellationToken);
+
+            if (!semestrResponse.IsSuccessStatusCode)
+            {
+                throw new HttpResponseException(semestrResponse);
+            }
+
+            return await JsonSerializer.DeserializeAsync<StudentSemestr>(
+                await semestrResponse.Content.ReadAsStreamAsync(),
                 cancellationToken: cancellationToken);
         }
     }

@@ -16,11 +16,20 @@
             Preference = preferenceStorageService;
 
             Diary = new Dictionary<DateOnly, List<StudentTimeTable>>();
+            WorkingProgramm = new Dictionary<(int Year, int Period), StudentSemestr>();
         }
 
         public IPreferenceStorageService Preference { get; init; }
 
         public Dictionary<DateOnly, List<StudentTimeTable>> Diary { get; private set; }
+
+        public Dictionary<(int Year, int Period), StudentSemestr> WorkingProgramm { get; private set; }
+
+        public void Clear()
+        {
+            Preference.Clear();
+            Barrel.Current.EmptyAll();
+        }
 
         public override async Task<Token> Autorize(string username, string password, CancellationToken cancellationToken = default)
         {
@@ -86,6 +95,19 @@
             Diary.Add(date, selectedDate);
 
             return selectedDate;
+        }
+
+        public override async Task<StudentSemestr> GetSemestr(int year, int period, CancellationToken cancellationToken = default)
+        {
+            if (WorkingProgramm.ContainsKey((year, period)))
+            {
+                return WorkingProgramm[(year, period)];
+            }
+
+            var selectedSemestr = await base.GetSemestr(year, period, cancellationToken);
+            WorkingProgramm.Add((year, period), selectedSemestr);
+
+            return selectedSemestr;
         }
     }
 }

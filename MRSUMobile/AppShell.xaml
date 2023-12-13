@@ -1,56 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-	x:Class="MRSUMobile.AppShell"
-	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:local="clr-namespace:MRSUMobile.MVVM.View"
-	xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-	Shell.FlyoutBehavior="Flyout"
-	Shell.TabBarIsVisible="False">
+    x:Class="MRSUMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MRSUMobile.MVVM.View"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="False">
 
-	<Shell.FlyoutHeader>
-		<Grid ColumnDefinitions="100, *"
-			ColumnSpacing="10"
-			Padding="10">
-			
-			<toolkit:AvatarView
-				ImageSource="{Binding User.Photo.UrlSmall}"
-				WidthRequest="100"
-				HeightRequest="100"
-				CornerRadius="50"
-				Grid.Column="0"/>
+    <Shell.FlyoutHeader>
+        <Grid ColumnDefinitions="100, *"
+            ColumnSpacing="10"
+            Padding="10">
 
-			<StackLayout Grid.Column="1"
-				VerticalOptions="CenterAndExpand">
+            <toolkit:AvatarView
+                ImageSource="{Binding User.Photo.UrlSmall}"
+                WidthRequest="100"
+                HeightRequest="100"
+                CornerRadius="50"
+                Grid.Column="0"/>
 
-				<Label Text="{Binding User.FIO}" FontSize="18"/>
-				<Label Text="{Binding User.Email}" FontSize="14"/>
-			</StackLayout>
-		</Grid>
+            <StackLayout Grid.Column="1"
+                VerticalOptions="CenterAndExpand">
+
+                <Label Text="{Binding User.FIO}" FontSize="18"/>
+                <Label Text="{Binding User.Email}" FontSize="14"/>
+            </StackLayout>
+        </Grid>
 
 
-	</Shell.FlyoutHeader>
+    </Shell.FlyoutHeader>
 
-	<FlyoutItem
-		Title="MRSUModile"
-		FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem
+        Title="MRSUModile"
+        FlyoutDisplayOptions="AsMultipleItems">
 
-		<ShellContent
-			Title="{Binding ProfileShell}"
-			ContentTemplate="{DataTemplate local:ProfileView}"
-			Route="Profile"/>
+        <ShellContent
+            Title="{Binding ProfileShell}"
+            ContentTemplate="{DataTemplate local:ProfileView}"
+            Route="Profile"/>
 
-		<ShellContent
-			Title="{Binding TimeTableShell}"
-			ContentTemplate="{DataTemplate local:TimeTableView}"
-			Route="TimeTable"/>
-	</FlyoutItem>
+        <ShellContent
+            Title="{Binding TimeTableShell}"
+            ContentTemplate="{DataTemplate local:TimeTableView}"
+            Route="TimeTable"/>
 
-	<Shell.FlyoutFooter>
-		<Button
-			Text="{Binding LogoutButton}"
-			Command="{Binding LogoutCommand}"/>
+        <ShellContent
+            Title="{Binding AcademicPerformanceShell}"
+            ContentTemplate="{DataTemplate local:AcademicPerformanceView}"
+            Route="AcademicPerformance"/>
 
-	</Shell.FlyoutFooter>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <Button
+            Text="{Binding LogoutButton}"
+            Command="{Binding LogoutCommand}"/>
+
+    </Shell.FlyoutFooter>
 
 </Shell>
