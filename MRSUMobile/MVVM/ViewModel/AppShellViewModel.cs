@@ -1,9 +1,11 @@
 ﻿namespace MRSUMobile.MVVM.ViewModel
 {
+    using CommunityToolkit.Maui.Alerts;
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using Microsoft.Extensions.Configuration;
     using MRSUMobile.Entities;
+    using MRSUMobile.Exceptions;
     using MRSUMobile.MVVM.Model;
     using MRSUMobile.MVVM.View;
     using MRSUMobile.Services;
@@ -23,6 +25,18 @@
         private string _academicPerformanceShell = "Успеваемость";
 
         [ObservableProperty]
+        private string _academicCodePlaceholder = "Отметка на занятии";
+
+        [ObservableProperty]
+        private string _code;
+
+        [ObservableProperty]
+        private string _codePlaceholder = "Код";
+
+        [ObservableProperty]
+        private string _sendCodePlaceholder = "Ввести";
+
+        [ObservableProperty]
         private string _logoutButton = "Выйти";
 
         [ObservableProperty]
@@ -37,6 +51,19 @@
             {
                 User = await _mrsuStorage.GetMyProfile();
             });
+        }
+
+        [RelayCommand]
+        private async Task SendCode()
+        {
+            try
+            {
+                var result = await _mrsuStorage.SendAttendanceCode(Code);
+            }
+            catch (HttpResponseException ex)
+            {
+                await Snackbar.Make(ex.Response.ReasonPhrase.ToString()).Show();
+            }
         }
 
         [RelayCommand]

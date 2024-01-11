@@ -13,6 +13,9 @@
     <Color x:Key="ButtonLight">#4928b0</Color>
     <Color x:Key="EntryLight">#3a3b3e</Color>
 
+    <Color x:Key="EntryButtonColor">#447b8b</Color>
+    <Color x:Key="CloseButtonColor">#85160e</Color>
+
     <Style x:Key="LogoMrsu" TargetType="Image">
         <Setter Property="Source" Value="mrsu_logo_light.png"/>
     </Style>

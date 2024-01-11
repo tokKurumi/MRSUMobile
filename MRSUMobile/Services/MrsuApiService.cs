@@ -145,14 +145,10 @@
                 await RefreshSession(BearerToken);
             }
 
-            var codeResponse = await MrsuApi.SendAsync(
-                new HttpRequestMessage(HttpMethod.Post, @"v1/StudentTimeTable")
-                {
-                    Content = new FormUrlEncodedContent(new Dictionary<string, string>()
-                    {
-                        { "code", code },
-                    }),
-                }, cancellationToken);
+            var codeResponse = await MrsuApi.PostAsync(
+                @$"v1/StudentAttendanceCode?code={code}",
+                null,
+                cancellationToken);
 
             if (!codeResponse.IsSuccessStatusCode)
             {

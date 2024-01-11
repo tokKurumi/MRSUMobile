@@ -10,7 +10,8 @@
         <StackLayout Margin="0">
             <controls:Calendar CalendarLayout="Week"
                                Culture="{Binding Culture}"
-                               DayTappedCommand="{Binding DayTappedCommand}"/>
+                               DayTappedCommand="{Binding DayTappedCommand}"
+                               TodayTextColor="{AppThemeBinding Dark={StaticResource TextAccentsDark}, Light={StaticResource TextAccentsLight}}"/>
 
             <CollectionView ItemsSource="{Binding StudentTimeTable}"
                             Style="{StaticResource DiaryPannel}">

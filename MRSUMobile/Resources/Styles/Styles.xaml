@@ -67,4 +67,12 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SubLight}, Dark={StaticResource SubDark}}"/>
     </Style>
 
+    <Style TargetType="Button" x:Key="EntryButton">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource EntryButtonColor}, Light={StaticResource EntryLight}}"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="CloseButton">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource CloseButtonColor}, Light={StaticResource CloseButtonColor}}"/>
+    </Style>
+
 </ResourceDictionary>

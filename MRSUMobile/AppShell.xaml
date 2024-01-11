@@ -9,26 +9,56 @@
     Shell.TabBarIsVisible="False">
 
     <Shell.FlyoutHeader>
-        <Grid ColumnDefinitions="100, *"
-            ColumnSpacing="10"
-            Padding="10">
+        <StackLayout>
+            <Grid
+                ColumnDefinitions="100, *"
+                ColumnSpacing="10"
+                Padding="10">
 
-            <toolkit:AvatarView
-                ImageSource="{Binding User.Photo.UrlSmall}"
-                WidthRequest="100"
-                HeightRequest="100"
-                CornerRadius="50"
-                Grid.Column="0"/>
+                <toolkit:AvatarView
+                    ImageSource="{Binding User.Photo.UrlSmall}"
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    CornerRadius="50"
+                    Grid.Column="0"/>
 
-            <StackLayout Grid.Column="1"
-                VerticalOptions="CenterAndExpand">
+                <StackLayout
+                    Grid.Column="1"
+                    VerticalOptions="CenterAndExpand">
 
-                <Label Text="{Binding User.FIO}" FontSize="18"/>
-                <Label Text="{Binding User.Email}" FontSize="14"/>
-            </StackLayout>
-        </Grid>
+                    <Label Text="{Binding User.FIO}" FontSize="18"/>
+                    <Label Text="{Binding User.Email}" FontSize="14"/>
+                </StackLayout>
+            </Grid>
 
+            <toolkit:Expander
+                Padding="10">
+                
+                <toolkit:Expander.Header>
+                    <Button Text="{Binding AcademicCodePlaceholder}"/>
+                </toolkit:Expander.Header>
 
+                <VerticalStackLayout>
+                    <Grid
+                        ColumnDefinitions="210, *">
+
+                        <Entry
+                            Text="{Binding Code}"
+                            Placeholder="{Binding CodePlaceholder}"
+                            Margin="5"
+                            Grid.Column="0"/>
+
+                        <Button
+                            Style="{StaticResource EntryButton}"
+                            Text="{Binding SendCodePlaceholder}"
+                            Command="{Binding SendCodeCommand}"
+                            Margin="5"
+                            Grid.Column="1"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </StackLayout>
     </Shell.FlyoutHeader>
 
     <FlyoutItem
@@ -54,6 +84,7 @@
 
     <Shell.FlyoutFooter>
         <Button
+            Style="{StaticResource CloseButton}"
             Text="{Binding LogoutButton}"
             Command="{Binding LogoutCommand}"/>
 

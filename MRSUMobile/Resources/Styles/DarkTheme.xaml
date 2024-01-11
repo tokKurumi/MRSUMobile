@@ -13,6 +13,9 @@
     <Color x:Key="ButtonDark">#5a31da</Color>
     <Color x:Key="EntryDark">#0f0f10</Color>
 
+    <Color x:Key="EntryButtonColor">#447b8b</Color>
+    <Color x:Key="CloseButtonColor">#85160e</Color>
+
     <Style x:Key="LogoMrsu" TargetType="Image">
         <Setter Property="Source" Value="mrsu_logo_dark.png"/>
     </Style>
