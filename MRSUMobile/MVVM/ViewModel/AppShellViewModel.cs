@@ -34,7 +34,7 @@
         private string _codePlaceholder = "Код";
 
         [ObservableProperty]
-        private string _sendCodePlaceholder = "Ввести";
+        private string _sendCodePlaceholder = "✔";
 
         [ObservableProperty]
         private string _logoutButton = "Выйти";
