@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MRSUMobile.MVVM.View.DisciplinePerfomaceView"
+             Title="{Binding DisciplinePerfomaceView}">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <CollectionView
+                ItemsSource="{Binding StudentRatingPlan.Sections}"
+                Style="{StaticResource CollectionPannel}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            Background="{AppThemeBinding Dark=#49808080,Light=#49808080}}"
+                            MinimumHeightRequest="100"
+                            MaximumWidthRequest="430"
+                            Padding="10"
+                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                            <Label Text="{Binding Title}" Style="{StaticResource TextAccents}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                            <CollectionView
+                                ItemsSource="{Binding ControlDots}">
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                            <Grid
+                                                ColumnSpacing="3"
+                                                ColumnDefinitions="80, 250, 80"
+                                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                                <Label Text="{Binding CreateDate, StringFormat='{0:d}'}" Grid.Column="0"/>
+                                                <Label Text="{Binding Title}" Grid.Column="1"/>
+
+                                                <Grid Grid.Column="2"
+                                                    ColumnDefinitions="2*, *, 2*"
+                                                    RowDefinitions="*">
+
+                                                <Label Text="{Binding Mark.Ball}" Grid.Column="0"/>
+                                                <Label Text="/" Grid.Column="1"/>
+                                                <Label Text="{Binding MaxBall}" Grid.Column="2"/>
+                                                </Grid>
+                                            </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

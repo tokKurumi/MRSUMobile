@@ -22,7 +22,11 @@
 
         Task<StudentAttendanceCode> SendAttendanceCode(string code, CancellationToken cancellationToken = default);
 
-        Task<StudentSemestr> GetSemestr(int year, int period, CancellationToken cancellationToken = default);
+        Task<StudentSemester> GetSemester(int year, int period, CancellationToken cancellationToken = default);
+
+        Task<StudentSemester> GetSemester(CancellationToken cancellationToken = default);
+
+        Task<StudentRatingPlan> GetRatingPlan(int disciplineId, CancellationToken cancellationToken = default);
 
         void SetToken(Token bearer);
     }

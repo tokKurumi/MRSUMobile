@@ -33,7 +33,8 @@
                 .AddTransient<AppShellViewModel>()
                 .AddTransient<ProfileViewModel>()
                 .AddTransient<TimeTableViewModel>()
-                .AddTransient<AcademicPerformanceViewModel>();
+                .AddTransient<AcademicPerformanceViewModel>()
+                .AddTransient<DisciplinePerfomaceViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();

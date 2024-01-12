@@ -14,7 +14,7 @@
                                TodayTextColor="{AppThemeBinding Dark={StaticResource TextAccentsDark}, Light={StaticResource TextAccentsLight}}"/>
 
             <CollectionView ItemsSource="{Binding StudentTimeTable}"
-                            Style="{StaticResource DiaryPannel}">
+                            Style="{StaticResource CollectionPannel}">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

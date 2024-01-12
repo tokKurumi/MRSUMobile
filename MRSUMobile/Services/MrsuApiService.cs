@@ -160,7 +160,7 @@
                 cancellationToken: cancellationToken);
         }
 
-        public virtual async Task<StudentSemestr> GetSemestr(int year, int period, CancellationToken cancellationToken = default)
+        public virtual async Task<StudentSemester> GetSemester(int year, int period, CancellationToken cancellationToken = default)
         {
             if (!IsAutorized())
             {
@@ -176,8 +176,50 @@
                 throw new HttpResponseException(semestrResponse);
             }
 
-            return await JsonSerializer.DeserializeAsync<StudentSemestr>(
+            return await JsonSerializer.DeserializeAsync<StudentSemester>(
                 await semestrResponse.Content.ReadAsStreamAsync(),
+                cancellationToken: cancellationToken);
+        }
+
+        public virtual async Task<StudentSemester> GetSemester(CancellationToken cancellationToken = default)
+        {
+            if (!IsAutorized())
+            {
+                await RefreshSession(BearerToken);
+            }
+
+            var request = @$"v1/StudentSemester?selector=current";
+
+            var semestrResponse = await MrsuApi.GetAsync(request, cancellationToken);
+
+            if (!semestrResponse.IsSuccessStatusCode)
+            {
+                throw new HttpResponseException(semestrResponse);
+            }
+
+            return await JsonSerializer.DeserializeAsync<StudentSemester>(
+                await semestrResponse.Content.ReadAsStreamAsync(),
+                cancellationToken: cancellationToken);
+        }
+
+        public virtual async Task<StudentRatingPlan> GetRatingPlan(int disciplineId, CancellationToken cancellationToken = default)
+        {
+            if (!IsAutorized())
+            {
+                await RefreshSession(BearerToken);
+            }
+
+            var request = @$"v2/StudentRatingPlan/{disciplineId}";
+
+            var ratingPlanResponse = await MrsuApi.GetAsync(request, cancellationToken);
+
+            if (!ratingPlanResponse.IsSuccessStatusCode)
+            {
+                throw new HttpResponseException(ratingPlanResponse);
+            }
+
+            return await JsonSerializer.DeserializeAsync<StudentRatingPlan>(
+                await ratingPlanResponse.Content.ReadAsStreamAsync(),
                 cancellationToken: cancellationToken);
         }
     }

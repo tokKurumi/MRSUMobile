@@ -1,6 +1,6 @@
 ﻿namespace MRSUMobile.MVVM.Model
 {
-    public class StudentSemestr
+    public class StudentSemester
     {
         public List<RecordBook> RecordBooks { get; set; }
 

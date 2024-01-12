@@ -63,7 +63,7 @@
         <Setter Property="DeselectedDayTextColor" Value="{AppThemeBinding Light={StaticResource TextSubLight}, Dark={StaticResource TextSubDark}}"/>
     </Style>
 
-    <Style TargetType="CollectionView" x:Key="DiaryPannel">
+    <Style TargetType="CollectionView" x:Key="CollectionPannel">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SubLight}, Dark={StaticResource SubDark}}"/>
     </Style>
 

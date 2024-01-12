@@ -85,6 +85,9 @@
         <MauiXaml Update="MVVM\View\AcademicPerformanceView.xaml">
           <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
+        <MauiXaml Update="MVVM\View\DisciplinePerfomaceView.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
         <MauiXaml Update="MVVM\View\LoginView.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>

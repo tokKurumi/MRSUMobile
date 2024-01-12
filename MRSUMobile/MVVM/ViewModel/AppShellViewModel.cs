@@ -12,8 +12,8 @@
 
     public partial class AppShellViewModel : ObservableObject
     {
-        private Preferenses _preferenceConfig;
-        private MrsuStorageService _mrsuStorage;
+        private readonly Preferenses _preferenceConfig;
+        private readonly MrsuStorageService _mrsuStorage;
 
         [ObservableProperty]
         private string _profileShell = "Профиль";
@@ -44,6 +44,8 @@
 
         public AppShellViewModel(IConfiguration configuration, MrsuApiService mrsuStorageService)
         {
+            Routing.RegisterRoute("DisciplinePerfomace", typeof(DisciplinePerfomaceView));
+
             _preferenceConfig = configuration.GetRequiredSection("Preferenses").Get<Preferenses>();
             _mrsuStorage = mrsuStorageService as MrsuStorageService;
 

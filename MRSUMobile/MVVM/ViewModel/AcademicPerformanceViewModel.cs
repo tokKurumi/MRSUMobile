@@ -4,18 +4,20 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MRSUMobile.MVVM.Model;
 using MRSUMobile.Services;
+using System.Collections.ObjectModel;
 
 public partial class AcademicPerformanceViewModel : ObservableObject
 {
-    private MrsuStorageService _mrsuStorage;
-
-    private int _semestrsPerYear = 2;
+    private readonly MrsuStorageService _mrsuStorage;
 
     [ObservableProperty]
     private string _academicPerformancePage = "Успеваемость";
 
     [ObservableProperty]
-    private StudentSemestr _studentSemestr;
+    private StudentSemester _studentSemestr;
+
+    [ObservableProperty]
+    private ObservableCollection<RecordBook> _subjects;
 
     public AcademicPerformanceViewModel(MrsuApiService mrsuStorageService)
     {
@@ -23,43 +25,17 @@ public partial class AcademicPerformanceViewModel : ObservableObject
 
         Application.Current.Dispatcher.DispatchAsync(async () =>
         {
-            StudentSemestr = await _mrsuStorage.GetSemestr(CurrentYear, CurrentPeriod);
+            StudentSemestr = await _mrsuStorage.GetSemester();
+            Subjects = new ObservableCollection<RecordBook>(StudentSemestr.RecordBooks);
         });
     }
 
-    private int CurrentYear { get; set; } = DateTime.Now.Year;
-
-    private int CurrentPeriod { get; set; } = DateTime.Now.Month is >= 3 and <= 9 ? 2 : 1;
-
     [RelayCommand]
-    private async Task NextSemestr()
+    private async Task Navigation(object disciplineId)
     {
-        if (CurrentPeriod == _semestrsPerYear)
+        await Shell.Current.GoToAsync("DisciplinePerfomace", new Dictionary<string, object>()
         {
-            CurrentPeriod--;
-            CurrentYear++;
-        }
-        else
-        {
-            CurrentPeriod++;
-        }
-
-        StudentSemestr = await _mrsuStorage.GetSemestr(CurrentYear, CurrentPeriod);
-    }
-
-    [RelayCommand]
-    private async Task PrevSemestr()
-    {
-        if (CurrentPeriod == 1)
-        {
-            CurrentPeriod = _semestrsPerYear;
-            CurrentYear--;
-        }
-        else
-        {
-            CurrentPeriod--;
-        }
-
-        StudentSemestr = await _mrsuStorage.GetSemestr(CurrentYear, CurrentPeriod);
+            { "DisciplineId", disciplineId },
+        });
     }
 }
