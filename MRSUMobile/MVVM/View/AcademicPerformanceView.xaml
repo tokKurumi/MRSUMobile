@@ -33,6 +33,7 @@
                                             Text="{Binding Title}"
                                             VerticalOptions="CenterAndExpand"
                                             HorizontalOptions="CenterAndExpand"
+                                            WidthRequest="300"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AcademicPerformanceViewModel}}, Path=NavigationCommand }"
                                             CommandParameter="{Binding Id}"/>
 
